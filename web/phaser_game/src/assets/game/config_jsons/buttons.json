@@ -1,0 +1,55 @@
+{
+    "menuscene":
+    {
+        "play_button": {
+            "position": {
+                "x": 0.5,
+                "y": 0.3
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "upTexture": "button_up",
+            "overTexture": "button_over",
+            "text":{
+                "position":{
+                    "x": 0,
+                    "y": 0
+                },
+                "text": "PLAY",
+                "style":{
+                    "fontFamily": "Courier",
+                    "fontSize": "64px",
+                    "fontStyle": "bold",
+                    "color": "#000000"
+                }
+            }
+        },
+        "editor_button": {
+            "position": {
+                "x": 0.5,
+                "y": 0.6
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "upTexture": "button_up",
+            "overTexture": "button_over",
+            "text":{
+                "position":{
+                    "x": 0,
+                    "y": 0
+                },
+                "text": "EDIT",
+                "style":{
+                    "fontFamily": "Arial",
+                    "fontSize": "64px",
+                    "fontStyle": "italic",
+                    "color": "#000000"
+                }
+            }
+        }
+    }
+}
