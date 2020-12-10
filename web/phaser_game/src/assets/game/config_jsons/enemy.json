@@ -1,0 +1,28 @@
+{
+    "enemy_slow":{
+        "position":{
+            "x": 0.75,
+            "y": 0.3
+        },
+        "spritesheet": "player_sheet",
+        "components":{
+            "enemy_movement":{
+                "velX": 1,
+                "velY": 0
+            }
+        }
+    },
+    "enemy_fast":{
+        "position":{
+            "x": 0.75,
+            "y": 0.6
+        },
+        "spritesheet": "player_sheet",
+        "components":{
+            "enemy_movement":{
+                "velX": 53,
+                "velY": 0
+            }
+        }
+    }
+}
