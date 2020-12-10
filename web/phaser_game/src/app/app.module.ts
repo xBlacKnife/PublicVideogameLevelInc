@@ -1,15 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
+//import { PrimengModule } from 'primeng';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GameComponent } from './game/game.component';
-import { LoginComponent } from './login/login/login.component';
+import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { JuegoComponent } from './juego/juego.component';
 import { GameplayerComponent } from './gameplayer/gameplayer.component';
 
 @NgModule({
@@ -21,12 +21,12 @@ import { GameplayerComponent } from './gameplayer/gameplayer.component';
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
-    JuegoComponent,
     GameplayerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
+    //PrimengModule
   ],
   providers: [],
   bootstrap: [AppComponent]
