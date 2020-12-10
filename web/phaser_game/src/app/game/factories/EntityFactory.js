@@ -1,11 +1,11 @@
-import Player from "../entities/Player.js"
-import Enemy from "../entities/Enemy.js"
-import EnemySlow from "../entities/EnemySlow.js"
-import EnemyFast from "../entities/EnemyFast.js"
+import {Player} from "../entities/Player.js"
+import {Enemy} from "../entities/Enemy.js"
+import {EnemySlow} from "../entities/EnemySlow.js"
+import {EnemyFast} from "../entities/EnemyFast.js"
 
-import Factory from "./Factory.js"
+import {Factory} from "./Factory.js"
 
-export default class EntityFactory extends Factory{
+class EntityFactory extends Factory{
 
     constructor(){
         super();
@@ -20,3 +20,9 @@ export default class EntityFactory extends Factory{
         return new this.factory[name](scene, config);
     }
 }
+
+export{
+
+    EntityFactory
+
+};

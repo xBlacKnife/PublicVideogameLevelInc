@@ -1,10 +1,10 @@
-import PlayerController from "../components/controller/PlayerController.js";
-import PlayerMovement from "../components/movement/PlayerMovement.js";
+import {PlayerController} from "../components/controller/PlayerController.js";
+import {PlayerMovement} from "../components/movement/PlayerMovement.js";
 import EnemyMovement from "../components/movement/EnemyMovement.js";
 
-import Factory from "./Factory.js"
+import {Factory} from "./Factory.js"
 
-export default class ComponentFactory extends Factory{
+class ComponentFactory extends Factory{
 
     constructor(){
         super();
@@ -14,7 +14,13 @@ export default class ComponentFactory extends Factory{
         this.factory["enemy_movement"] = EnemyMovement;
     }
 
-    create(name, config){
-        return new this.factory[name](config[name]);
+    create(parent, name, config){
+        return new this.factory[name](parent, config[name]);
     }
 }
+
+export{
+
+    ComponentFactory
+
+};

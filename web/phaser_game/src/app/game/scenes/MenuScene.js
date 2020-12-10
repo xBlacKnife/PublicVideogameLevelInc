@@ -1,37 +1,68 @@
 import CustomButton from "../hud/CustomButton"
-import Scene from "./Scene.js"
+import {Scene} from "./Scene.js"
 
-export default class MenuScene extends Scene{
+/////////////////////////////////////////////////////////////////////
+///////////////////////////   MenuScene   ///////////////////////////
+/////////////////////////////////////////////////////////////////////
 
-    buttons_config = null;
-    button_playscene = null;
-    button_editorscene = null;
+/**
+ * Clase MenuScene
+ */
+class MenuScene extends Scene{
 
+    //#region VARIABLES
+
+    // Botones
+    _buttons_config = null;
+    _button_playscene = null;
+    _button_editorscene = null;
+
+    //#endregion
+
+
+/////////////////////////////////////////////////////////////////////
+
+
+    /**
+     * Constructora de la clase MenuScene, hija de Scene
+     */
     constructor(){
+
         super("MenuScene");
-    }
+
+    } // constructor
+
 
     preload(){
-        this.buttons_config = this.cache.json.get("buttons_config").menuscene;
-    }
+
+        this._buttons_config = this.cache.json.get("buttons_config").menuscene;
+
+    } // preload
+
 
     create(){
+
         this.add.text(0, 0, "MENU"); 
 
-        this.create_buttons();  
+        this.createButtons();  
 
         super.create();
-    }
+
+    } // create
+
 
     update(time, delta){
-        super.update(time, delta);
-    }
 
-    create_buttons(){
+        super.update(time, delta);
+
+    } // update
+
+
+    createButtons(){
         
         // Play Button
-        let play_button = this.buttons_config.play_button
-        this.button_playscene = new CustomButton(
+        let play_button = this._buttons_config.play_button
+        this._button_playscene = new CustomButton(
             this,
             play_button,
             this.add.text(
@@ -42,11 +73,11 @@ export default class MenuScene extends Scene{
             ()=> {
                 this.scene.start("PlayScene");
             });
-        this.add.existing(this.button_playscene);
+        this.add.existing(this._button_playscene);
 
         // Editor Button
-        let editor_button = this.buttons_config.editor_button;
-        this.button_editorscene = new CustomButton(
+        let editor_button = this._buttons_config.editor_button;
+        this._button_editorscene = new CustomButton(
             this,
             editor_button, 
             this.add.text(
@@ -57,6 +88,14 @@ export default class MenuScene extends Scene{
             ()=> {
                 this.scene.start("EditorScene");
             });
-        this.add.existing(this.button_editorscene);
-    }
-}
+        this.add.existing(this._button_editorscene);
+
+    } // createButtons
+
+} // class MenuScene
+
+export  {
+
+    MenuScene
+
+};

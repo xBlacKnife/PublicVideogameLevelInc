@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import Phaser from 'phaser';
 
-import MenuScene from "./scenes/MenuScene"
-import PlayScene from "./scenes/PlayScene"
-import EditorScene from "./scenes/EditorScene"
-import MainScene from "./scenes/MainScene"
+import {MenuScene} from "./scenes/MenuScene"
+import {PlayScene} from "./scenes/PlayScene"
+import {EditorScene} from "./scenes/EditorScene"
+import {LoadScene} from "./scenes/LoadScene"
 
 @Component({
   selector: 'app-game',
@@ -24,20 +24,19 @@ export class GameComponent implements OnInit {
         autoCenter: Phaser.Scale.CENTER_BOTH
     },
     scene: [
-          MainScene
+      LoadScene, MenuScene, PlayScene, EditorScene
     ],
     physics: {
-        default: "arcade",
-        arcade:{
-            gravity: {
-                y: 400
-            },
-            debug: false
-        }
+      default: 'arcade',
+      arcade: {
+          gravity: { y: 0 },
+          debug: false
+      }
     },
     backgroundColor: "#bbbbff"
     };
-  }  ngOnInit() {
+  }  
+  ngOnInit() {
     this.phaserGame = new Phaser.Game(this.config);
   }
 }

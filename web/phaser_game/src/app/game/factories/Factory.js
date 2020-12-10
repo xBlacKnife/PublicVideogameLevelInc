@@ -1,7 +1,23 @@
-export default class Factory{
+/**
+ * 
+ */
+class Factory{
+
+    /**
+     * 
+     */
     factory = {};
 
+    /**
+     * 
+     */
     constructor(){
 
     }
 }
+
+export {
+
+    Factory
+
+};

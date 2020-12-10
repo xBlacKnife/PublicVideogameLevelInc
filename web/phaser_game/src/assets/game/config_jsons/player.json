@@ -6,10 +6,15 @@
     "spritesheet": "player_sheet",
     "components":{
         "player_movement":{
-            "velX": -3,
-            "velY": 5
+            "velX": 10,
+            "velY": 10
         },
         "player_controller":{
+            "up": "W",
+            "down": "S",
+            "left": "A",
+            "right": "D",
+            "jump": "SPACE"
         }
     }
 }

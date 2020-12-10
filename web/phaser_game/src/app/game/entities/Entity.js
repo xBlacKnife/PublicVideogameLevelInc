@@ -1,9 +1,33 @@
-export default class Entity extends Phaser.GameObjects.Sprite{
-    scene = null
-    config = null;
+/////////////////////////////////////////////////////////////////////
+////////////////////////////   Entity   /////////////////////////////
+/////////////////////////////////////////////////////////////////////
+
+/**
+ * 
+ */
+class Entity extends Phaser.Physics.Arcade.Sprite{
+
+    //#region VARIABLES
+
+    /**
+     * 
+     */
+    _config = null;
     
-    components = [];
-    
+    /**
+     * 
+     */
+    _components = [];
+
+    //#endregion
+
+
+/////////////////////////////////////////////////////////////////////
+   
+
+    /**
+     * 
+     */
     constructor(scene, config){
         super(
             scene, 
@@ -11,23 +35,52 @@ export default class Entity extends Phaser.GameObjects.Sprite{
             config.position.y * scene.sys.canvas.height, 
             config.spritesheet
             );
+        this._config = config;
 
-        scene.add.existing(this);
-
-        this.scene = scene;
-        this.config = config;
+        this.scene.add.existing(this);
+        this.scene.physics.add.existing(this);
     }
 
+    
+/////////////////////////////////////////////////////////////////////
+
+
+    //#region METODOS
+
+    /**
+     * 
+     */
     init(){
-        for (var key in this.config.components) {
-            this.components.push(this.scene.component_factory.create(key, this.config.components));
-        }
-    }
 
+        for (var key in this._config.components) {
+            this._components.push(this.scene._component_factory.create(this, key, this._config.components));
+        }
+        this._components.forEach(element => {
+            element.init();
+        })
+
+    } // init
+
+
+    /**
+     * 
+     * @param {*} time 
+     * @param {*} delta 
+     */
     update(time, delta){
-        this.components.forEach(element => {
+
+        this._components.forEach(element => {
             element.update(time, delta);
         });
-    }
 
-}
+    } // update
+
+    //#endregion
+
+} // class Entity
+
+export{
+
+    Entity
+
+};

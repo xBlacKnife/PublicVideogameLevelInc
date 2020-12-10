@@ -1,6 +1,6 @@
-import Enemy from "./Enemy.js"
+import {Enemy} from "./Enemy.js"
 
-export default class EnemyFast extends Enemy{
+class EnemyFast extends Enemy{
     constructor(scene, config){
         super(scene, config);
     }
@@ -13,3 +13,9 @@ export default class EnemyFast extends Enemy{
         super.update(time, delta);
     }
 }
+
+export{
+
+    EnemyFast
+
+};

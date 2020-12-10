@@ -1,16 +1,22 @@
-import Component from "../Component.js";
+import {Component} from "../Component.js";
 
-export default class Movement extends Component{
-    velX = 0;
-    velY = 0;
+class Movement extends Component{
+    _velX = 0;
+    _velY = 0;
     
-    constructor(config){
-        super();
+    constructor(entity, config){
+        super(entity);
 
-        this.velX = config.velX;
-        this.velY = config.velY;
+        this._velX = config.velX;
+        this._velY = config.velY;
     }
 
     update(time, delta){
     }
 }
+
+export{
+
+    Movement
+
+};
