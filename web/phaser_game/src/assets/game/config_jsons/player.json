@@ -1,0 +1,20 @@
+{
+    "position":{
+        "x": 0.25,
+        "y": 0.5
+    },
+    "spritesheet": "player_sheet",
+    "components":{
+        "player_movement":{
+            "velX": 10,
+            "velY": 10
+        },
+        "player_controller":{
+            "up": "W",
+            "down": "S",
+            "left": "A",
+            "right": "D",
+            "jump": "SPACE"
+        }
+    }
+}
