@@ -1,0 +1,24 @@
+
+footer div {
+    margin: auto;
+    text-align: left;
+    padding-left: 5%; 
+}
+
+.legal-sep {
+    text-align: left;
+    color: #f3f5f5;
+    display: block;
+    width: 100%;
+}
+
+@media (min-width: 640px) {
+    .legalsep {
+        display: contents;
+    }
+    .footerLegal {
+        margin: auto;
+        text-align: center;
+        padding-left: 0px;
+    }
+}

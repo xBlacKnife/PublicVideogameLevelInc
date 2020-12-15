@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './gameplayer.component.html',
   styleUrls: ['./gameplayer.component.css']
 })
-export class GameplayerComponent implements OnInit {
+export class GamePlayerComponent implements OnInit {
 
   constructor() { }
 
