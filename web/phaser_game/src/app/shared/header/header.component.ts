@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
     this.username = null;
   }
 
-  updateState() {
+  updateState() { // Invocar cuando se reciba login y se consigure la sesión de usuario. TODO
     this.username = sessionStorage.getItem('username');
     this.logged_in = this.username == null;
   }

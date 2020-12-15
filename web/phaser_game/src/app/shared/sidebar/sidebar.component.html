@@ -1,1 +1,6 @@
-<p>sidebar works!</p>
+<div class="sidebar">
+    <button (click)="goHome()"><img src="assets/web/images/home.png"/></button>
+    <button (click)="goEditor()"><img src="assets/web/images/editor.png"/></button>
+    <button (click)="goRanking()"><img src="assets/web/images/ranking.png"/></button>
+    <button (click)="goAdmin()" *ngIf="user_is_admin"><img src="assets/web/images/admin.jpg"/></button>
+</div>
