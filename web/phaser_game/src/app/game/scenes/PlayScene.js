@@ -7,22 +7,16 @@ import {Scene} from "./Scene.js"
 /////////////////////////////////////////////////////////////////////
 
 /**
- * Clase PlayScene
+ * Clase PlayScene.
  */
 class PlayScene extends Scene{   
 
     //#region VARIABLES
 
     /**
-     * JSON con la configuracion del player.
+     * JSON con la configuracion de las entidades.
      */
-    _player_config = null;
-
-
-    /**
-     * JSON con la configuracion de los enemigos.
-     */
-    _enemy_config = null;
+    _entities_config = null;
 
     //#endregion
 
@@ -47,8 +41,7 @@ class PlayScene extends Scene{
 
     preload(){
 
-        this._player_config = this.cache.json.get("player_config");
-        this._enemy_config = this.cache.json.get("enemy_config");
+        this._entities_config = this.cache.json.get("play_scene_entities_config");
 
     } // preload
 
@@ -78,11 +71,18 @@ class PlayScene extends Scene{
      */
     createEntities(){
 
-        // PLAYER
-        this._entities.push(this._entity_factory.create(this, "player", this._player_config));
+        // Recorre toda la lista de entidades dentro del JSON
+        if (this._entities_config != null){
+            this._entities_config["entities"].forEach(element =>{
+                
+                // Crea la entidada
+                let e = this._entity_factory.create(this, element["name"], element)
 
-        for (var key in this._enemy_config) {
-            this._entities.push(this._entity_factory.create(this, key, this._enemy_config[key]));
+                // Si es distinto de null, la añade a la lista de entidades
+                if (e != null) {
+                    this._entities.push(e);
+                }
+            })
         }
 
     } // createEntities

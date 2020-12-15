@@ -65,8 +65,12 @@ class LoadScene extends Scene{
      */
     loadImages(){
 
-        this.load.image("button_up", IMAGE_PATH + "buttons/button_up.png");
-        this.load.image("button_over", IMAGE_PATH + "buttons/button_over.png");
+        // MENU
+        this.load.image("menu_background", IMAGE_PATH + "menu/background.png");
+        this.load.spritesheet("menu_button_control", IMAGE_PATH + "menu/control_button.png", {frameWidth: 66, frameHeight: 75});
+        this.load.spritesheet("menu_button_sound", IMAGE_PATH + "menu/sound_button.png", {frameWidth: 66, frameHeight: 75});
+        this.load.spritesheet("menu_button_play", IMAGE_PATH + "menu/play_button.png", {frameWidth: 301, frameHeight: 90});
+        this.load.spritesheet("menu_button_edit", IMAGE_PATH + "menu/edit_button.png", {frameWidth: 301, frameHeight: 90});
 
         this.load.image("phaser_logo", IMAGE_PATH + "phaser_logo.png");
         this.load.image("mario_maker", IMAGE_PATH + "mario_maker.png");
@@ -109,9 +113,8 @@ class LoadScene extends Scene{
      */
     loadJsons(){
 
-        this.load.json("player_config", CONFIG_JSON_PATH + "player.json")
-        this.load.json("enemy_config", CONFIG_JSON_PATH + "enemy.json")
-        this.load.json("buttons_config", CONFIG_JSON_PATH + "buttons.json");
+        this.load.json("play_scene_entities_config", CONFIG_JSON_PATH + "play_scene_entities.json")
+        this.load.json("menu_scene_buttons_config", CONFIG_JSON_PATH + "menu_scene_buttons.json");
 
     } // loadJsons
 

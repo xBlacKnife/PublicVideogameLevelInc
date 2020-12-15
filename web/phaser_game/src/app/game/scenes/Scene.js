@@ -7,7 +7,9 @@ import {EntityFactory} from "../factories/EntityFactory.js"
 /////////////////////////////////////////////////////////////////////
 
 /**
- * Clase Scene
+ * Clase Scene. Hereda de las escenas proporcionadas por Phaser. 
+ * Estas contienen una serie de metodos que se controlaran solos, sin 
+ * la necesidad de que el programador los invoque (preload, create y update).
  */
 class Scene extends Phaser.Scene{
 
@@ -40,11 +42,7 @@ class Scene extends Phaser.Scene{
 
 
     /**
-     * Constructora de la clase padre Scene, la cual hereda de las
-     * escenas proporcionadas por Phaser. Estas contienen una serie de
-     * metodos que se controlaran solos, sin la necesidad de que el
-     * programador los invoque (preload, create y update).
-     * que almacena Phaser para que el programador tenga facil acceso. ** Solo funciona con elementos de Phaser o heredados de estos **
+     * Constructora de la clase padre Scene.
      * 
      * @param {String} key Identificador del Object 
      */
@@ -79,16 +77,17 @@ class Scene extends Phaser.Scene{
      * un overwrite de una funcion existente en Phaser.Scene.
      * 
      * Se usa para crear las entidades y distintos valores. Esto 
-     * se hace separado del "preload" porque usa los recursos cargados
-     * en esta funcion.
+     * se hace separado del "preload" porque en esta funcion se
+     * usaran los elementos previamente cargados
      */
     create(){
 
         // Por cada entidad en la escena
         this._entities.forEach(element =>{
 
-            // Se llama a su init (metodo parecido al create)
-            element.init();
+            if (element != null)
+                // Se llama a su init (metodo parecido al create)
+                element.init();
 
         })
 
@@ -111,7 +110,7 @@ class Scene extends Phaser.Scene{
         this._entities.forEach(element =>{
             
             // Si la entidad está activa
-            if (element.active) 
+            if (element != null && element.active) 
                 // Se llama a su update
                 element.update(time, delta);
         })
