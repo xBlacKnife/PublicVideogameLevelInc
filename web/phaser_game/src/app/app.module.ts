@@ -3,22 +3,28 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GameComponent } from './game/game.component';
-import { primengConfig } from './primengConfig';
-
-//Libreias de compoenntes para el front y estilos 
-import { LoginComponent } from './game/login/login/login.component';
+import { LoginComponent } from './views/login/login.component';
+import { HomeModule } from './views/home/home.module';
+import { HeaderComponent } from './shared/header/header.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { GamePlayerModule } from './views/gameplayer/gameplayer.module';
+import { PrimengNGModule } from './primeng.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GameComponent,
-    LoginComponent
+    LoginComponent,
+    HeaderComponent,
+    FooterComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    primengConfig, 
+    HomeModule,
+    GamePlayerModule,
+    PrimengNGModule
   ],
   providers: [],
   bootstrap: [AppComponent]
