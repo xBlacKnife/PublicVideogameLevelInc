@@ -1,7 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { LoginComponent } from './game/login/login/login.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  //{               
+    //path: '/login',
+    //component: LoginComponent
+    //}
+    {          
+      // canActivate: [RoleGuardService],
+             // data: {
+             // expectedRole: 'Administrador'
+              //},
+      path: 'init/login',
+      component: LoginComponent
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
