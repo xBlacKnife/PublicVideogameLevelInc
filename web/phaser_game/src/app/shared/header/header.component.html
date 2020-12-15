@@ -1,7 +1,17 @@
 <header>
-<div>
-    <div>
-        <img src="assets/web/images/logo.png" alt="logo">
+  <img src="assets/web/images/logo.png" alt="logo">
+  <div>
+    <p>Búsqueda</p>
+    <div *ngIf="!logged_in; else elseBlock">
+      <button (click)="goLogin()">Login</button>
     </div>
-</div>
+
+    <ng-template #elseBlock>
+      <div >
+        <p-checkbox name="groupname" value="true" >bgbggb</p-checkbox>
+        <button (click)="doLogout()">Logout</button>
+      </div>
+    </ng-template>
+  </div> 
+  <input type="text" pInputText />
 </header>

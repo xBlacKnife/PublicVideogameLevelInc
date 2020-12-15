@@ -1,5 +1,4 @@
 import { BrowserModule } from '@angular/platform-browser';
-//import { PrimengModule } from 'primeng';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,6 +9,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { GamePlayerModule } from './views/gameplayer/gameplayer.module';
+import { PrimengNGModule } from './primeng.module';
 
 @NgModule({
   declarations: [
@@ -23,8 +23,8 @@ import { GamePlayerModule } from './views/gameplayer/gameplayer.module';
     BrowserModule,
     AppRoutingModule,
     HomeModule,
-    GamePlayerModule
-    //PrimengModule
+    GamePlayerModule,
+    PrimengNGModule
   ],
   providers: [],
   bootstrap: [AppComponent]

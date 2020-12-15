@@ -1,0 +1,10 @@
+
+header {
+    max-height: 120px;
+    display: flex;
+    flex-direction: row;
+}
+
+header img {
+    max-height: inherit;
+}
