@@ -1,6 +1,6 @@
 import {MessageID} from "../listener_pattern/Messages";
 
-import {PlayerController} from "../components/controller/PlayerController.js";
+import {PlayerController} from "../components/controller/KeyboardController.js";
 import {PlayerMovement} from "../components/movement/PlayerMovement.js";
 import {Entity} from "./Entity.js";
 
@@ -10,14 +10,14 @@ import {Entity} from "./Entity.js";
 
 
 /**
- * 
+ * Clase Player. Es la entidad perteneciente al/los jugador/es.
  */
 class Player extends Entity{  
 
     //#region VARIABLES
 
     /**
-     * 
+     * TEST: Tecla "P"
      */
     _key_p = null;
 
@@ -28,16 +28,19 @@ class Player extends Entity{
 
 
     /**
+     * Constructora de la clase Player
      * 
-     * @param {*} scene 
-     * @param {*} config 
+     * @param {Scene} scene Escena a la que pertenece la entidad
+     * @param {Dict} config Diccionario con la configuracion de la entidad
      */
     constructor(scene, config){
+
         super(scene, config);
 
-        this._key_p = scene.input.keyboard.addKey('P');  // Get key object
-        this.on('update', this.update, this);
-    }
+        // TEST: Almacena la tecla P
+        this._key_p = scene.input.keyboard.addKey('P'); 
+
+    } // constructor
 
 
 /////////////////////////////////////////////////////////////////////    
@@ -45,24 +48,33 @@ class Player extends Entity{
 
     //#region METODOS
 
-    /**
-     * 
-     */
     init(){
+
         super.init();
-        this.scene.events.addListener(MessageID.ENEMY_ATTACK_PLAYER, (arg1) => console.log(arg1), this);
+
+        // TEST: Se esta añadiendo a la escena para poder recibir 
+        // los mensajes
+        this.scene.events.addListener(
+            MessageID.ENEMY_ATTACK_PLAYER,  // Mensaje que gestionara
+            (arg1) => console.log(arg1),    // Gestion del mensaje si lo recibe
+            this);                          // Le digo a la escena que me añado yo
+
     }
 
 
-    /**
-     * 
-     */
     update(time, delta){
+
         super.update(time, delta);
         
+        // TEST: Si la tecla P esta pulsada
         if (this._key_p.isDown){
-            this.scene.events.emit(MessageID.PLAYER_KILL_ENEMY, "Ja ja ja, soy el mejor.");
+
+            // Mando un mensaje a la escena
+            this.scene.events.emit(
+                MessageID.PLAYER_KILL_ENEMY,    // Mensaje 
+                "Ja ja ja, soy el mejor.");     // Informacion que lleva el mensaje
         }
+        
     }
 
     //#endregion

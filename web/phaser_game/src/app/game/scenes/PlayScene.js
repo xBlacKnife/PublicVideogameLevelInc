@@ -50,7 +50,9 @@ class PlayScene extends Scene{
 
         this.add.text(0, 0, "PLAY");
 
-        this.createEntities();
+        // Crea las entidades
+        if (this._entities_config != null)
+            this.createEntities(this._entities_config);
 
         // Se llama al "create" de Scene
         super.create();
@@ -64,28 +66,6 @@ class PlayScene extends Scene{
         super.update(time, delta);
 
     } // update
-
-
-    /**
-     * Crea las entidades de la escena a partir de los JSONS cargados.d
-     */
-    createEntities(){
-
-        // Recorre toda la lista de entidades dentro del JSON
-        if (this._entities_config != null){
-            this._entities_config["entities"].forEach(element =>{
-                
-                // Crea la entidada
-                let e = this._entity_factory.create(this, element["name"], element)
-
-                // Si es distinto de null, la añade a la lista de entidades
-                if (e != null) {
-                    this._entities.push(e);
-                }
-            })
-        }
-
-    } // createEntities
 
     //#endregion
 

@@ -1,6 +1,6 @@
 import {Movement} from "./Movement.js";
 
-export default class EnemyMovement extends Movement{
+class EnemyMovement extends Movement{
     constructor(entity, config){
         super(entity, config);
     }
@@ -10,3 +10,9 @@ export default class EnemyMovement extends Movement{
     }
 
 }
+
+export{
+
+    EnemyMovement
+
+};

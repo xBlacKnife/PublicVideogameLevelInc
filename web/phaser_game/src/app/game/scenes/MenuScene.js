@@ -10,19 +10,6 @@ import {Scene} from "./Scene.js"
  */
 class MenuScene extends Scene{
 
-    //#region VARIABLES
-
-    /**
-     * Manager de botones
-     */
-    _buttons_manager = null;
-
-    //#endregion
-
-
-/////////////////////////////////////////////////////////////////////
-
-
     /**
      * Constructora de la clase MenuScene, hija de Scene
      */
@@ -38,7 +25,7 @@ class MenuScene extends Scene{
         // Pone la imagen de fondo
         this.add.image(0, 0, 'menu_background').setOrigin(0);
 
-        // Crea los diferentes botones
+        // Llama al manager de botones que inicialmente los creara
         this._buttons_manager = new ButtonManager(this, "menu_scene_buttons_config") 
 
     } // preload

@@ -12,7 +12,7 @@
                     "velX": 10,
                     "velY": 10
                 },
-                "player_controller":{
+                "keyboard_controller":{
                     "up": "W",
                     "down": "S",
                     "left": "A",

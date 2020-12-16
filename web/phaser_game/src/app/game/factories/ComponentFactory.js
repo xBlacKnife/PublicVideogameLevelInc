@@ -1,6 +1,6 @@
-import {PlayerController} from "../components/controller/PlayerController.js";
+import {KeyboardController} from "../components/controller/KeyboardController.js";
 import {PlayerMovement} from "../components/movement/PlayerMovement.js";
-import EnemyMovement from "../components/movement/EnemyMovement.js";
+import {EnemyMovement} from "../components/movement/EnemyMovement.js";
 
 import {Factory} from "./Factory.js"
 
@@ -21,8 +21,8 @@ class ComponentFactory extends Factory{
         super();
 
         this._factory["player_movement"] = PlayerMovement;
-        this._factory["player_controller"] = PlayerController;
         this._factory["enemy_movement"] = EnemyMovement;
+        this._factory["keyboard_controller"] = KeyboardController;
 
     } // constructor
 
