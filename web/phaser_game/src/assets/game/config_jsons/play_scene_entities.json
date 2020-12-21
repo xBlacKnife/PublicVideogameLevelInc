@@ -1,0 +1,53 @@
+{
+    "entities":[
+        {
+            "name" : "player",
+            "position":{
+                "x": 0.25,
+                "y": 0.5
+            },
+            "spritesheet": "player_sheet",
+            "components":{
+                "player_movement":{
+                    "velX": 10,
+                    "velY": 10
+                },
+                "keyboard_controller":{
+                    "up": "W",
+                    "down": "S",
+                    "left": "A",
+                    "right": "D",
+                    "jump": "SPACE"
+                }
+            }
+        },
+            {
+            "name" : "enemy_slow", 
+            "position":{
+                "x": 0.75,
+                "y": 0.3
+            },
+            "spritesheet": "player_sheet",
+            "components":{
+                "enemy_movement":{
+                    "velX": 1,
+                    "velY": 0
+                }
+            }
+        },
+        {
+            "name" : "enemy_fast",
+            "position":{
+                "x": 0.75,
+                "y": 0.6
+            },
+            "spritesheet": "player_sheet",
+            "components":{
+                "enemy_movement":{
+                    "velX": 53,
+                    "velY": 0
+                }
+            }
+        }
+    ]    
+}

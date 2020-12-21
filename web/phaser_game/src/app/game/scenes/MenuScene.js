@@ -1,4 +1,4 @@
-import CustomButton from "../hud/CustomButton"
+import {ButtonManager} from "../hud/ButtonManager"
 import {Scene} from "./Scene.js"
 
 /////////////////////////////////////////////////////////////////////
@@ -9,19 +9,6 @@ import {Scene} from "./Scene.js"
  * Clase MenuScene
  */
 class MenuScene extends Scene{
-
-    //#region VARIABLES
-
-    // Botones
-    _buttons_config = null;
-    _button_playscene = null;
-    _button_editorscene = null;
-
-    //#endregion
-
-
-/////////////////////////////////////////////////////////////////////
-
 
     /**
      * Constructora de la clase MenuScene, hija de Scene
@@ -35,16 +22,16 @@ class MenuScene extends Scene{
 
     preload(){
 
-        this._buttons_config = this.cache.json.get("buttons_config").menuscene;
+        // Pone la imagen de fondo
+        this.add.image(0, 0, 'menu_background').setOrigin(0);
+
+        // Llama al manager de botones que inicialmente los creara
+        this._buttons_manager = new ButtonManager(this, "menu_scene_buttons_config") 
 
     } // preload
 
 
     create(){
-
-        this.add.text(0, 0, "MENU"); 
-
-        this.createButtons();  
 
         super.create();
 
@@ -56,41 +43,6 @@ class MenuScene extends Scene{
         super.update(time, delta);
 
     } // update
-
-
-    createButtons(){
-        
-        // Play Button
-        let play_button = this._buttons_config.play_button
-        this._button_playscene = new CustomButton(
-            this,
-            play_button,
-            this.add.text(
-                play_button.text.position.x,
-                play_button.text.position.y,
-                play_button.text.text,
-                play_button.text.style),
-            ()=> {
-                this.scene.start("PlayScene");
-            });
-        this.add.existing(this._button_playscene);
-
-        // Editor Button
-        let editor_button = this._buttons_config.editor_button;
-        this._button_editorscene = new CustomButton(
-            this,
-            editor_button, 
-            this.add.text(
-                editor_button.text.position.x,
-                editor_button.text.position.y,
-                editor_button.text.text,
-                editor_button.text.style),
-            ()=> {
-                this.scene.start("EditorScene");
-            });
-        this.add.existing(this._button_editorscene);
-
-    } // createButtons
 
 } // class MenuScene
 

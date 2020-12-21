@@ -1,4 +1,4 @@
-import CustomButton from "../hud/CustomButton.js"
+import {Scene} from "./Scene"
 
 /////////////////////////////////////////////////////////////////////
 //////////////////////////   EditorScene   //////////////////////////
@@ -7,7 +7,7 @@ import CustomButton from "../hud/CustomButton.js"
 /**
  * Clase EditorScene
  */
-class EditorScene extends Phaser.Scene{
+class EditorScene extends Scene{
 
     /**
      * Constructora de la clase EditorScene, hija de Scene.
@@ -28,11 +28,13 @@ class EditorScene extends Phaser.Scene{
 
     } // preload
 
+
     create(){
 
         this.add.text(0, 0, "EDIT");
 
     } // create
+
 
     update(time, delta){
 
