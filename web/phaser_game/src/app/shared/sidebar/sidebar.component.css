@@ -1,6 +1,7 @@
 .sidebar {
     margin: 0;
     padding: 0;
+    height: 100%;
     width: 85px;
     background-color: #f1f1f1;
     position: fixed;
