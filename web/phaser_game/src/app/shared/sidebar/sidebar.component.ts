@@ -30,4 +30,6 @@ export class SidebarComponent implements OnInit {
 
   goAdmin() { this.router.navigate(['/admin']); }
 
+  goGame() { this.router.navigate(['/game']); }
+
 }

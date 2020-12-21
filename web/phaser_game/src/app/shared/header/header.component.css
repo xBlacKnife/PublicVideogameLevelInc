@@ -5,11 +5,52 @@ header {
     flex-direction: row;
 }
 
-header img {
-    max-height: inherit;
+header .brandIcon {
+    height: 35px;
+}
+
+.headerBrand{
+    width: 30%;
+    display: inline-block;
+}
+
+img {
+    max-height: 120px;
 }
 
 .userlogo {
     max-width: 50px;
     max-height: 50px;
+}
+
+@media only screen and (min-width: 640px) {
+    .headerBrand {
+        width: 25%;
+    }
+    .headerLink{
+        width: 75%;
+    }
+    .imgLogo{
+    width:70%;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .headerBrand {
+        width: 20%;
+    }
+}
+@media only screen and (min-width: 992px) {
+    .imgLogo{
+        width:60%;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .headerBrand {
+        width: 15%;
+    }
+}
+@media only screen and (min-width: 1280px) {
+    .headerBrand {
+        width: 10%;
+    }
 }

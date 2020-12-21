@@ -1,11 +1,10 @@
 
-footer {
-    position:absolute;
-    bottom: 0;
-    height: 10%;
+footer{
+    display: block;
 }
 
-footer div {
-    text-align: left;
-    padding-left: 5%; 
+.footer {
+    background-color: #004571;
+    width: 100%;
+    bottom: 0;
 }
