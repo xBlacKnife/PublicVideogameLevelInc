@@ -1,0 +1,21 @@
+.parent-container {
+    position: relative;
+}
+
+.container {
+    width: 75%;
+    height: 75%;
+    max-height: inherit;
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    top: 20%; left: 10%; bottom: 0; right: 10%;
+}
+
+.margin{
+    margin: auto;
+}
+
+.border {
+    border-style: solid;
+}

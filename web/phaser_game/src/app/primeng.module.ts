@@ -4,6 +4,7 @@ import {CheckboxModule} from 'primeng/checkbox';
 import {CardModule} from 'primeng/card';
 import {ButtonModule} from 'primeng/button';
 import {DialogModule} from 'primeng/dialog';
+import {CarouselModule} from 'primeng/carousel';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import {DialogModule} from 'primeng/dialog';
         CheckboxModule,
         CardModule,
         ButtonModule,
-        DialogModule
+        DialogModule,
+        CarouselModule
     ]
 })
 
