@@ -3,13 +3,13 @@
 }
 
 .container {
-    width: 75%;
-    height: 75%;
+    width: 90%;
+    height: 90%;
     max-height: inherit;
     overflow: auto;
     margin: auto;
     position: absolute;
-    top: 20%; left: 10%; bottom: 0; right: 10%;
+    top: 60%; left: 10%; bottom: 0; right: 10%;
 }
 
 .margin{
