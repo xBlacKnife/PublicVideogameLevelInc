@@ -1,0 +1,67 @@
+{
+    "buttons":
+    {
+        "play_button": {
+            "position": {
+                "x": 0.125,
+                "y": 0.6
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "texture": "menu_button_play",
+            "states":["up", "over"],
+            "function":{
+                "type": "CHANGE_SCENE",
+                "next_scene": "PlayScene"
+            }
+        },
+        "edit_button": {
+            "position": {
+                "x": 0.125,
+                "y": 0.75
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "texture": "menu_button_edit",
+            "states":["up", "over"],
+            "function":{
+                "type": "CHANGE_SCENE",
+                "next_scene": "EditorScene"
+            }
+        },
+        "sound_button": {
+            "position": {
+                "x": 0.075,
+                "y": 0.955
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "texture": "menu_button_sound",
+            "states":["up_on", "over_on", "up_off", "over_off"],
+            "function":{
+                "type": "SOUND"
+            }
+        },
+        "control_button": {
+            "position": {
+                "x": 0.15,
+                "y": 0.955
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "texture": "menu_button_control",
+            "states":["up", "over"],
+            "function":{
+                "type": "SHOW_CONTROLS"
+            }
+        }
+    }
+}

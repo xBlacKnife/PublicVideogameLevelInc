@@ -1,0 +1,87 @@
+#comment-input {
+    display: flex;
+    flex-direction: column;
+}
+
+#comment-input button {
+    align-self: flex-end;
+    margin-top: 20px;
+    width: 80px;
+}
+
+#comment-input input {
+    height: 3vh;
+}
+
+#comment-output {
+    border: 1px solid;
+    margin-top: 20px;
+}
+
+#game-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#game-canvas {
+    align-self: center; 
+    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 50vh;
+    width: 70vw;
+    margin: 20px;
+}
+
+#game-comments {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    width: 70vw;
+    margin: 20px;
+    margin-top: 40px;
+}
+
+#game-info {
+    align-self: center;
+    display: flex;
+    justify-content: space-between;
+    width: 70vw;
+}
+
+#game-name {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment {
+    border: 1px solid;
+    display: flex;
+    justify-content: space-between;
+    margin: 30px;
+    padding: 10px;
+}
+
+.comment div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+
+.comment-logo {
+    width: 80px;
+    height: 80px;
+}
+
+.comment-user label {
+    align-self: center;
+    margin-top: 10px;
+}
+
+.ratingstar {
+    width: 40px;
+}

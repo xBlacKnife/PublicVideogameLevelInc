@@ -1,5 +1,5 @@
 /**
- * Tipos de mensajes
+ * Enum con los tipos de mensajes que podemos enviar
  */
 const MessageID = {
 
