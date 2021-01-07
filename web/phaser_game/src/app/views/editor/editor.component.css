@@ -1,0 +1,39 @@
+#editor-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#editor-info {
+    align-self: center;
+    display: flex;
+    justify-content: flex-end;
+    width: 70vw;
+}
+
+#editor-level {
+    align-self: center;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 70vw;
+}
+
+#editor-level label {
+    margin: 0;
+    margin-right: 10px;
+    align-self: center;
+}
+
+#game-canvas {
+    align-self: center; 
+    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px;
+    margin-top: 0;
+    text-align: center;
+    height: 50vh;
+    width: 70vw;
+}
