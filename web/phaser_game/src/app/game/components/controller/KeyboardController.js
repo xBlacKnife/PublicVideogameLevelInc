@@ -76,7 +76,20 @@ class KeyboardController extends Controller{
                 MessageID.PLAYER_RIGHT,
                 false);
         })
+         // ---- JUMP
+        // Si la tecla para saltar se pulsa.
+        this._keycodes["up"].on('down', () => {
+            this._entity.emit(
+                MessageID.PLAYER_JUMP,
+                true);
+        })
 
+        // Si la tecla para saltar se levanta.
+        this._keycodes["up"].on('up', () => {
+            this._entity.emit(
+                MessageID.PLAYER_JUMP,
+                false);
+        })
     } // checKeys
 
     //#endregion
