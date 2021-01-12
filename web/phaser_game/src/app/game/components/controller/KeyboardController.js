@@ -78,14 +78,14 @@ class KeyboardController extends Controller{
         })
          // ---- JUMP
         // Si la tecla para saltar se pulsa.
-        this._keycodes["up"].on('down', () => {
+        this._keycodes["jump"].on('down', () => {
             this._entity.emit(
                 MessageID.PLAYER_JUMP,
                 true);
         })
 
         // Si la tecla para saltar se levanta.
-        this._keycodes["up"].on('up', () => {
+        this._keycodes["jump"].on('up', () => {
             this._entity.emit(
                 MessageID.PLAYER_JUMP,
                 false);
