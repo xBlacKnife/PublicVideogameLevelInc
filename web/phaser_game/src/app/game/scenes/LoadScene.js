@@ -79,6 +79,9 @@ class LoadScene extends Scene{
 
         this.load.spritesheet("player_sheet", IMAGE_PATH + "spritesheets/dude.png", { frameWidth: 32, frameHeight: 48 })
 
+        // [LCM test]
+        this.load.spritesheet("editor_sheet", IMAGE_PATH + "spritesheets/tilesetEditorTest.png", { frameWidth: 16, frameHeight: 16 })
+
         this.load.spritesheet("menu_button_control", IMAGE_PATH + "menu/control_button.png", {frameWidth: 66, frameHeight: 75});
         this.load.spritesheet("menu_button_sound", IMAGE_PATH + "menu/sound_button.png", {frameWidth: 66, frameHeight: 75});
         this.load.spritesheet("menu_button_play", IMAGE_PATH + "menu/play_button.png", {frameWidth: 301, frameHeight: 90});
