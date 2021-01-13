@@ -153,7 +153,30 @@ class Scene extends Phaser.Scene{
         })
 
     } // createEntities
-
+    createCollider(){
+        //Collide with the enemy -> return to origin
+        this.physics.add.collider(
+            this._entities[0],
+            this._entities[1],
+            function (player,enemy_low){
+                player.x = 0.25
+                player.y = 0.5
+            }.bind(this)); 
+        this.physics.add.collider(
+            this._entities[0],
+            this._entities[2],
+            function (player,enemy_fast){
+                player.x = 0.25
+                player.y = 0.5
+            }.bind(this)); 
+        this.physics.add.collider(
+            this._entities[0],
+            this._entities[3],
+            function (player,fuego){
+                player.x = 0.25
+                player.y = 0.5
+            }.bind(this)); 
+    }
     //#endregion
 
 } // class Scene

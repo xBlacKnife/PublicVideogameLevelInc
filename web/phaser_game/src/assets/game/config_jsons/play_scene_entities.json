@@ -48,6 +48,20 @@
                     "velY": 0
                 }
             }
+        },
+        {
+            "name" : "fuego", 
+            "position":{
+                "x": 0.75,
+                "y": 0.9
+            },
+            "spritesheet": "fuego_sheet",
+            "components":{
+                "enemy_movement":{
+                    "velX": 0,
+                    "velY": 0
+                }
+            }
         }
     ]    
 }

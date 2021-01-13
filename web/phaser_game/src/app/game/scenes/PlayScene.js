@@ -53,7 +53,7 @@ class PlayScene extends Scene{
         // Crea las entidades
         if (this._entities_config != null)
             this.createEntities(this._entities_config);
-
+            this.createCollider();
         // Se llama al "create" de Scene
         super.create();
 

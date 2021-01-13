@@ -27,6 +27,10 @@ class PlayerMovement extends Movement{
      */
     _move_right = false;
 
+    //Jump
+    _move_up = false;
+    //
+
     //#endregion
 
 
@@ -58,11 +62,11 @@ class PlayerMovement extends Movement{
         // Se esta añadiendo a la entidad como componente que puede 
         // escuchar mensajes. En este caso recibira cuando el jugador
         // quiera moverse a la izquierda
-        this._entity.addListener(
-            MessageID.PLAYER_LEFT,              // Mensaje
-            (move) => this._move_left = move,   // Gestion del mensaje
-            this                                // Me añado yo mismo
-        );
+       // this._entity.addListener(
+       //     MessageID.PLAYER_LEFT,              // Mensaje
+      //      (move) => this._move_left = move,   // Gestion del mensaje
+     //       this                                // Me añado yo mismo
+      //  );
 
         // Se esta añadiendo a la entidad como componente que puede 
         // escuchar mensajes. En este caso recibira cuando el jugador
@@ -72,23 +76,39 @@ class PlayerMovement extends Movement{
             (move) => this._move_right = move,  // Gestion del mensaje
             this                                // Me añado yo mismo
         );                                      
+        //JUMP
+        this._entity.addListener(
+            MessageID.PLAYER_JUMP,             // Mensaje
+            (move) => this._move_up = move,  // Gestion del mensaje
+            this                                // Me añado yo mismo
+        );
 
+         //Camera Follow Player
+         this._entity.scene.cameras.main.startFollow(this._entity.body);
+        //gravity
+         this._entity.body.setGravityY(300); 
     } // init
 
     update(time, delta){
 
         // Si se quiere mover a la izquierda
-        if (this._move_left) 
+       // if (this._move_left) 
             // Muevete a la izquierda
-            this._entity.body.setVelocityX(-this._velX * delta);
+       //     this._entity.body.setVelocityX(-this._velX * delta);
         // Si se quiere mover a la derecha
-        else if (this._move_right)
+     //   else if (this._move_right)
             // Muevete a la derecha
             this._entity.body.setVelocityX(this._velX * delta);
+            //Jump
+            if (this._move_up)
+          
+            this._entity.body.setVelocityY(-330);
         // Si no se quiere mover
-        else
+     //   else
             // No te muevas
-            this._entity.body.setVelocityX(0);
+       //     this._entity.body.setVelocityX(0);
+    
+
 
     } // update
 

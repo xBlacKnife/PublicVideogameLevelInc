@@ -87,6 +87,9 @@ class LoadScene extends Scene{
         this.load.spritesheet("menu_button_play", IMAGE_PATH + "menu/play_button.png", {frameWidth: 301, frameHeight: 90});
         this.load.spritesheet("menu_button_edit", IMAGE_PATH + "menu/edit_button.png", {frameWidth: 301, frameHeight: 90});
 
+        //objetos
+        this.load.spritesheet("fuego_sheet", IMAGE_PATH + "spritesheets/fuego.png", { frameWidth: 32, frameHeight: 32})
+
     } // loadSpritesheets
 
 
@@ -144,6 +147,13 @@ class LoadScene extends Scene{
             repeat: -1
         });
 
+        //ANIMATION DEL FUEGO
+        this.anims.create({
+            key: 'burning',
+            frames: this.anims.generateFrameNumbers('fuego_sheet', { start: 0, end: 5 }),
+            frameRate: 10,
+            repeat: -1
+        });
     } // createAnims
 
     //#endregion
