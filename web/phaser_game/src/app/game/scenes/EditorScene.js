@@ -43,10 +43,7 @@ class EditorScene extends Scene{
     } // preload
 
 
-    create(){
-
-        this.add.text(0, 0, "EDIT");
-        
+    create(){        
         this._entities.push(new EditorGrid(this, {"position":{"x": 0.0,"y": 0.0},
                                                   "spritesheet": "editor_sheet",}))
                                                   super.create();

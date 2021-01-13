@@ -5,8 +5,8 @@
             "name": "put_entity_button",
             "type": "button_editor",
             "position": {
-                "x": 0.5,
-                "y": 0.5
+                "x": 0.05,
+                "y": 0.05
             },
             "scale": {
                 "x": 1,
@@ -16,6 +16,74 @@
             "states":["up", "over"],
             "function":{
                 "type": "PUT_ENTITY"
+            }
+        },
+        {
+            "name": "select_entity_button",
+            "type": "button_editor",
+            "position": {
+                "x": 0.05,
+                "y": 0.15
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "texture": "editor_button_select_entity",
+            "states":["up", "over"],
+            "function":{
+                "type": "SELECT_ENTITY"
+            }
+        },
+        {
+            "name": "remove_entity_button",
+            "type": "button_editor",
+            "position": {
+                "x": 0.05,
+                "y": 0.25
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "texture": "editor_button_remove_entity",
+            "states":["up", "over"],
+            "function":{
+                "type": "REMOVE_ENTITY"
+            }
+        },
+        {
+            "name": "save_level_button",
+            "type": "button_editor",
+            "position": {
+                "x": 0.95,
+                "y": 0.05
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "texture": "editor_button_save_level",
+            "states":["up", "over"],
+            "function":{
+                "type": "SAVE_LEVEL"
+            }
+        },
+        {
+            "name": "load_level_button",
+            "type": "button_editor",
+            "position": {
+                "x": 0.95,
+                "y": 0.15
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "texture": "editor_button_load_level",
+            "states":["up", "over"],
+            "function":{
+                "type": "LOAD_LEVEL"
             }
         }
     ]

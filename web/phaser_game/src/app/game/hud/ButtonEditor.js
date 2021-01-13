@@ -14,15 +14,19 @@ class ButtonEditor extends Button
                 break;
 
             case "REMOVE_ENTITY":
+                this.createRemoveEntityButton(config);
                 break;
 
             case "SELECT_ENTITY":
+                this.createSelectEntityButton(config);
                 break;
 
             case "SAVE_LEVEL":
+                this.createSaveLevelButton(config);
                 break;
 
             case "LOAD_LEVEL":
+                this.createLoadLevelButton(config);
                 break;
 
         }
@@ -38,7 +42,6 @@ class ButtonEditor extends Button
 
         this.setInteractive()
         .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
-            // Cambia la escena asignada en el diccionario
             this.scene._editor_manager.setMode(EditorMode.PUT_ENTITY, {});
         });
 
@@ -50,7 +53,6 @@ class ButtonEditor extends Button
 
         this.setInteractive()
         .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
-            // Cambia la escena asignada en el diccionario
             this.scene._editor_manager.setMode(EditorMode.REMOVE_ENTITY, {});
         });
 
@@ -62,8 +64,27 @@ class ButtonEditor extends Button
 
         this.setInteractive()
         .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
-            // Cambia la escena asignada en el diccionario
             this.scene._editor_manager.setMode(EditorMode.SELECT_ENTITY, {});
+        });
+
+    }
+
+    createSaveLevelButton(config){
+        this.setTemplateInteraction(config);
+
+        this.setInteractive()
+        .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
+            
+        });
+
+    }
+
+    createLoadLevelButton(config){
+        this.setTemplateInteraction(config);
+
+        this.setInteractive()
+        .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
+            
         });
 
     }

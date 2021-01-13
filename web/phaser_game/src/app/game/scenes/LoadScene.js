@@ -49,7 +49,7 @@ class LoadScene extends Scene{
 
         // Se cambia de escena, por lo que esta debera ser la 
         // ultima llamada de esta escena.
-        this.scene.start("MenuScene");
+        this.scene.start("EditorScene");
 
     } // create
 
@@ -82,10 +82,18 @@ class LoadScene extends Scene{
         // [LCM test]
         this.load.spritesheet("editor_sheet", IMAGE_PATH + "spritesheets/tilesetEditorTest.png", { frameWidth: 16, frameHeight: 16 })
 
+        // Botones Menu Principal
         this.load.spritesheet("menu_button_control", IMAGE_PATH + "menu/control_button.png", {frameWidth: 66, frameHeight: 75});
         this.load.spritesheet("menu_button_sound", IMAGE_PATH + "menu/sound_button.png", {frameWidth: 66, frameHeight: 75});
         this.load.spritesheet("menu_button_play", IMAGE_PATH + "menu/play_button.png", {frameWidth: 301, frameHeight: 90});
         this.load.spritesheet("menu_button_edit", IMAGE_PATH + "menu/edit_button.png", {frameWidth: 301, frameHeight: 90});
+
+        // Botones Editor
+        this.load.spritesheet("editor_button_put_entity", IMAGE_PATH + "editor/put_button.png", {frameWidth: 100, frameHeight: 50});
+        this.load.spritesheet("editor_button_select_entity", IMAGE_PATH + "editor/select_button.png", {frameWidth: 100, frameHeight: 50});
+        this.load.spritesheet("editor_button_remove_entity", IMAGE_PATH + "editor/remove_button.png", {frameWidth: 100, frameHeight: 50});
+        this.load.spritesheet("editor_button_save_level", IMAGE_PATH + "editor/save_button.png", {frameWidth: 100, frameHeight: 50});
+        this.load.spritesheet("editor_button_load_level", IMAGE_PATH + "editor/load_button.png", {frameWidth: 100, frameHeight: 50});
 
         //objetos
         this.load.spritesheet("fuego_sheet", IMAGE_PATH + "spritesheets/fuego.png", { frameWidth: 32, frameHeight: 32})
