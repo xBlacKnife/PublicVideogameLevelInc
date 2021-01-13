@@ -179,7 +179,7 @@ class EditorGrid extends Entity{
         //  Our painting marker
         this._marker = this.scene.add.graphics();
         this._marker.lineStyle(2, 0x000000, 1);
-        this._marker.fillRect(0, 0, 32, 32);
+        this._marker.strokeRect(0, 0, 16, 16);
     
     }
 
@@ -192,7 +192,10 @@ class EditorGrid extends Entity{
 
         var tileXY = ptestGrid._levelTilemap.worldToTileXY(this.scene.input.activePointer.worldX, 
                                                            this.scene.input.activePointer.worldY);
-        
+
+        this._marker.x = this._levelTilemap.tileToWorldX(tileXY.x);
+        this._marker.y = this._levelTilemap.tileToWorldY(tileXY.y);
+
         if (this.scene.input.mousePointer.isDown && tileXY != null)
         {
             if(this._currentMode == "PUT_ENTITY"){
@@ -202,6 +205,8 @@ class EditorGrid extends Entity{
             else if (this._currentMode == "REMOVE_ENTITY"){
                 ptestGrid._levelTilemap.removeTileAt(tileXY.x, tileXY.y, ptestGrid._layer);
                 console.log("RemoveTile: " + ptestGrid._currentTile + ", pos: " + tileXY.x + ", " + tileXY.y);
+            }else if (this._currentMode == "SELECT_ENTITY"){
+                
             }
             
         }
