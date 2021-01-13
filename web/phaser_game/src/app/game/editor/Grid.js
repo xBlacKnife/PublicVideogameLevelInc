@@ -182,8 +182,15 @@ class EditorGrid extends Entity{
         
         if (this.scene.input.mousePointer.isDown)
         {
-            ptestGrid._levelTilemap.putTileAt(ptestGrid._currentTile, tileXY.x, tileXY.y);
-            console.log("Tile: " + ptestGrid._currentTile + ", pos: " + tileXY.x + ", " + tileXY.y);
+            if(this._currentMode == "PUT_ENTITY"){
+                ptestGrid._levelTilemap.putTileAt(ptestGrid._currentTile, tileXY.x, tileXY.y, ptestGrid._layer);
+                console.log("AddTile: " + ptestGrid._currentTile + ", pos: " + tileXY.x + ", " + tileXY.y);
+            }
+            else if (this._currentMode == "REMOVE_ENTITY"){
+                ptestGrid._levelTilemap.removeTileAt(tileXY.x, tileXY.y, ptestGrid._layer);
+                console.log("RemoveTile: " + ptestGrid._currentTile + ", pos: " + tileXY.x + ", " + tileXY.y);
+            }
+            
         }
     }
     //#endregion
