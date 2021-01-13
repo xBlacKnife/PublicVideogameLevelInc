@@ -115,9 +115,9 @@ class LoadScene extends Scene{
      * Carga los jsons.
      */
     loadJsons(){
-
         this.load.json("play_scene_entities_config", CONFIG_JSON_PATH + "play_scene_entities.json")
         this.load.json("menu_scene_buttons_config", CONFIG_JSON_PATH + "menu_scene_buttons.json");
+        this.load.json("editor_scene_buttons_config", CONFIG_JSON_PATH + "editor_scene_buttons.json");
 
     } // loadJsons
 

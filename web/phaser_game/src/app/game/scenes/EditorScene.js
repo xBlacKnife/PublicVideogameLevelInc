@@ -1,5 +1,6 @@
 import {Scene} from "./Scene"
 import {EditorGrid} from "../entities/TestGrid.js"
+import { EditorManager } from "../editor/EditorManager";
 
 /////////////////////////////////////////////////////////////////////
 //////////////////////////   EditorScene   //////////////////////////
@@ -12,10 +13,7 @@ class EditorScene extends Scene{
 
     //#region VARIABLES
 
-    /**
-     * JSON con la configuracion de las entidades.
-     */
-    _entities_config = null;
+    _editor_manager = null;
 
     //#endregion
 
@@ -38,6 +36,10 @@ class EditorScene extends Scene{
 
     preload(){
 
+        this._buttons_config = this.cache.json.get("editor_scene_buttons_config"); 
+
+        this._editor_manager = new EditorManager(this);
+
     } // preload
 
 
@@ -47,7 +49,10 @@ class EditorScene extends Scene{
         
         this._entities.push(new EditorGrid(this, {"position":{"x": 0.0,"y": 0.0},
                                                   "spritesheet": "editor_sheet",}))
-        super.create();
+                                                  super.create();
+        if (this._buttons_config != null){
+            this.createButtons(this._buttons_config);
+        }
     } // create
 
 

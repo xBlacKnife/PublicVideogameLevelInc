@@ -13,11 +13,6 @@ class PlayScene extends Scene{
 
     //#region VARIABLES
 
-    /**
-     * JSON con la configuracion de las entidades.
-     */
-    _entities_config = null;
-
     //#endregion
 
 
@@ -51,9 +46,12 @@ class PlayScene extends Scene{
         this.add.text(0, 0, "PLAY");
 
         // Crea las entidades
-        if (this._entities_config != null)
+        if (this._entities_config != null){
+
             this.createEntities(this._entities_config);
             this.createCollider();
+
+        }
         // Se llama al "create" de Scene
         super.create();
 
