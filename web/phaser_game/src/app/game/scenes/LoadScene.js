@@ -49,7 +49,7 @@ class LoadScene extends Scene{
 
         // Se cambia de escena, por lo que esta debera ser la 
         // ultima llamada de esta escena.
-        this.scene.start("EditorScene");
+        this.scene.start("PlayScene");
 
     } // create
 
@@ -69,6 +69,12 @@ class LoadScene extends Scene{
         this.load.image("phaser_logo", IMAGE_PATH + "phaser_logo.png");
         this.load.image("mario_maker", IMAGE_PATH + "mario_maker.png");
 
+        // ParallaxScroll
+        this.load.image("jung_1", IMAGE_PATH + "parallax/jungle/jung_1.png");
+        this.load.image("jung_2", IMAGE_PATH + "parallax/jungle/jung_2.png");
+        this.load.image("jung_3", IMAGE_PATH + "parallax/jungle/jung_3.png");
+        this.load.image("jung_4", IMAGE_PATH + "parallax/jungle/jung_4.png");
+
     } // loadImages
 
 
@@ -77,7 +83,7 @@ class LoadScene extends Scene{
      */
     loadSpritesheets(){
 
-        this.load.spritesheet("player_sheet", IMAGE_PATH + "spritesheets/dude.png", { frameWidth: 32, frameHeight: 48 })
+        this.load.spritesheet("player_sheet", IMAGE_PATH + "spritesheets/player_sheet.png", { frameWidth: 45, frameHeight: 45 })
 
         // [LCM test]
         this.load.spritesheet("editor_sheet", IMAGE_PATH + "spritesheets/tilesetEditorTest.png", { frameWidth: 16, frameHeight: 16 })
@@ -123,6 +129,9 @@ class LoadScene extends Scene{
      * Carga los jsons.
      */
     loadJsons(){
+
+        this.load.json("parallax_config", CONFIG_JSON_PATH + "parallax_config.json");
+
         this.load.json("play_scene_entities_config", CONFIG_JSON_PATH + "play_scene_entities.json")
         this.load.json("menu_scene_buttons_config", CONFIG_JSON_PATH + "menu_scene_buttons.json");
         this.load.json("editor_scene_buttons_config", CONFIG_JSON_PATH + "editor_scene_buttons.json");
@@ -137,12 +146,30 @@ class LoadScene extends Scene{
 
         // PLAYER ANIMATIONS
         this.anims.create({
-            key: 'anim_player_left',
-            frames: this.anims.generateFrameNumbers('player_sheet', { start: 0, end: 3 }),
+            key: 'idle1',
+            frames: this.anims.generateFrameNumbers('player_sheet', { start: 0, end: 5 }),
             frameRate: 10,
-            repeat: -1
+            repeat: 1
         });
         this.anims.create({
+            key: 'idle2',
+            frames: this.anims.generateFrameNumbers('player_sheet', { start: 6, end: 16 }),
+            frameRate: 10,
+            repeat: 1
+        });
+        this.anims.create({
+            key: 'walk',
+            frames: this.anims.generateFrameNumbers('player_sheet', { start: 17, end: 37 }),
+            frameRate: 10,
+            repeat: 1
+        });
+        this.anims.create({
+            key: 'jump',
+            frames: this.anims.generateFrameNumbers('player_sheet', { start: 38, end: 43 }),
+            frameRate: 10,
+            repeat: 1
+        });
+        /*this.anims.create({
             key: 'anim_player_right',
             frames: this.anims.generateFrameNumbers('player_sheet', { start: 5, end: 8 }),
             frameRate: 10,
@@ -161,7 +188,7 @@ class LoadScene extends Scene{
             frames: this.anims.generateFrameNumbers('fuego_sheet', { start: 0, end: 5 }),
             frameRate: 10,
             repeat: -1
-        });
+        });*/
     } // createAnims
 
     //#endregion
