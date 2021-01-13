@@ -85,6 +85,23 @@
             "function":{
                 "type": "LOAD_LEVEL"
             }
+        },
+        {
+            "name": "test_level_button",
+            "type": "button_editor",
+            "position": {
+                "x": 0.95,
+                "y": 0.25
+            },
+            "scale": {
+                "x": 1,
+                "y": 1
+            },
+            "texture": "editor_button_test_level",
+            "states":["up", "over"],
+            "function":{
+                "type": "TEST_LEVEL"
+            }
         }
     ]
 }
