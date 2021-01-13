@@ -69,6 +69,12 @@ class LoadScene extends Scene{
         this.load.image("phaser_logo", IMAGE_PATH + "phaser_logo.png");
         this.load.image("mario_maker", IMAGE_PATH + "mario_maker.png");
 
+        // ParallaxScroll
+        this.load.image("jung_1", IMAGE_PATH + "parallax/jungle/jung_1.png");
+        this.load.image("jung_2", IMAGE_PATH + "parallax/jungle/jung_2.png");
+        this.load.image("jung_3", IMAGE_PATH + "parallax/jungle/jung_3.png");
+        this.load.image("jung_4", IMAGE_PATH + "parallax/jungle/jung_4.png");
+
     } // loadImages
 
 
@@ -123,6 +129,9 @@ class LoadScene extends Scene{
      * Carga los jsons.
      */
     loadJsons(){
+
+        this.load.json("parallax_config", CONFIG_JSON_PATH + "parallax_config.json");
+
         this.load.json("play_scene_entities_config", CONFIG_JSON_PATH + "play_scene_entities.json")
         this.load.json("menu_scene_buttons_config", CONFIG_JSON_PATH + "menu_scene_buttons.json");
         this.load.json("editor_scene_buttons_config", CONFIG_JSON_PATH + "editor_scene_buttons.json");

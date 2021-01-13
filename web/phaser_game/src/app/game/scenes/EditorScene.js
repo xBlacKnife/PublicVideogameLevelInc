@@ -1,6 +1,7 @@
 import {Scene} from "./Scene"
 import {EditorGrid} from "../entities/TestGrid.js"
-import { EditorManager } from "../editor/EditorManager";
+import { EditorManager, EditorMode } from "../editor/EditorManager";
+import{ParallaxScroll} from "../parallax/ParallaxScroll"
 
 /////////////////////////////////////////////////////////////////////
 //////////////////////////   EditorScene   //////////////////////////
@@ -14,6 +15,8 @@ class EditorScene extends Scene{
     //#region VARIABLES
 
     _editor_manager = null;
+
+    _parallax_scroll = null;
 
     //#endregion
 
@@ -43,7 +46,10 @@ class EditorScene extends Scene{
     } // preload
 
 
-    create(){        
+    create(){   
+        
+        this._parallax_scroll = new ParallaxScroll(this, "parallax_config", "jungle");
+        
         this._entities.push(new EditorGrid(this, {"position":{"x": 0.0,"y": 0.0},
                                                   "spritesheet": "editor_sheet",}))
                                                   super.create();
@@ -56,6 +62,9 @@ class EditorScene extends Scene{
     update(time, delta){
         // Se llama al "update" de Scene
         super.update(time, delta);
+
+        if (this._editor_manager._mode == EditorMode.TEST)
+            this._parallax_scroll.update(time, delta);
     } // update
 
     //#endregion

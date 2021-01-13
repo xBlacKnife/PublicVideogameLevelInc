@@ -33,7 +33,7 @@ export class GameComponent implements OnInit {
           debug: false
       }
     },
-    backgroundColor: "#bbbbff"
+    backgroundColor: "#000000"
     };
   }  
   ngOnInit() {

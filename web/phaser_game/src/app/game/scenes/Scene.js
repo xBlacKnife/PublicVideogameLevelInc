@@ -79,7 +79,6 @@ class Scene extends Phaser.Scene{
      * Se usa para cargar los assets.
      */
     preload(){
-
     } // preload
 
 

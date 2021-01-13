@@ -1,0 +1,11 @@
+{
+    "jungle":{
+        "background_color": "#aedecb",
+        "textures": [
+            "jung_1", "jung_2", "jung_3", "jung_4"
+        ],
+        "scale": 1,
+        "scroll_factor": 1,
+        "scroll_scale": 0.5
+    }
+}

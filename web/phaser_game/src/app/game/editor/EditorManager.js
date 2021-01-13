@@ -6,7 +6,8 @@ const EditorMode = {
     IDLE: "IDLE",
     PUT_ENTITY: "PUT_ENTITY", 
     REMOVE_ENTITY: "REMOVE_ENTITY",
-    SELECT_ENTITY: "SELECT_ENTITY"
+    SELECT_ENTITY: "SELECT_ENTITY",
+    TEST: "TEST"
 
 }; // EditorMode
 

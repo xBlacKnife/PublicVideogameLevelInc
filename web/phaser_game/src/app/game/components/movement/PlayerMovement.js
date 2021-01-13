@@ -20,6 +20,10 @@ class PlayerMovement extends Movement{
      */
     _move_left = false;
 
+    _camera_offset = [-300, 250];
+
+    _oriY = 0;
+
 
     /**
      * True: indica que el jugador se debe mover a la derecha
@@ -49,6 +53,9 @@ class PlayerMovement extends Movement{
 
         super(entity, config);
 
+        this._entity.body.collideWorldBounds = true;
+        this._entity.body.setGravityY(300); 
+
     } // constructor
 
 
@@ -59,18 +66,8 @@ class PlayerMovement extends Movement{
 
     init(){
 
-        // Se esta añadiendo a la entidad como componente que puede 
-        // escuchar mensajes. En este caso recibira cuando el jugador
-        // quiera moverse a la izquierda
-       // this._entity.addListener(
-       //     MessageID.PLAYER_LEFT,              // Mensaje
-      //      (move) => this._move_left = move,   // Gestion del mensaje
-     //       this                                // Me añado yo mismo
-      //  );
+        this._oriY = this._entity.y;
 
-        // Se esta añadiendo a la entidad como componente que puede 
-        // escuchar mensajes. En este caso recibira cuando el jugador
-        // quiera moverse a la derecha
         this._entity.addListener(
             MessageID.PLAYER_RIGHT,             // Mensaje
             (move) => this._move_right = move,  // Gestion del mensaje
@@ -83,20 +80,26 @@ class PlayerMovement extends Movement{
             this                                // Me añado yo mismo
         );
 
-        //Camera Follow Player
-        this._entity.scene.cameras.startFollow(this._entity);
-        //gravity
-        this._entity.body.setGravityY(500); 
+         //Camera Follow Player
+        this._entity.scene.cameras.main.startFollow(this._entity);
+        this._entity.scene.cameras.main.followOffset.set(this._camera_offset[0], this._camera_offset[1]);
     } // init
 
     update(time, delta){
-        this._entity.body.setVelocityX(this._velX * delta);
-        //Jump
-        if (this._move_up)
+        if(this._move_right)
+            this._entity.body.setVelocityX(this._velX * delta);
 
-        this._entity.body.setVelocityY(-250);
+        if (this._entity.y != this._oriY){
+            this._entity.scene.cameras.main.followOffset.set(this._camera_offset[0], this._camera_offset[1] + (this._entity.y - this._oriY));
+        }
+        else{
+            this._entity.scene.cameras.main.followOffset.set(this._camera_offset[0], this._camera_offset[1]);
+        }
 
 
+        //Jump cuando esta en el suelo 
+        if (this._move_up /*&& this._entity.body.touching.down*/)
+            this._entity.body.setVelocityY(-330);
 
     } // update
 
