@@ -44,7 +44,6 @@ class Scene extends Phaser.Scene{
 
     _button_factory = null;
 
-    _test_start = false;
     //#endregion
     
 

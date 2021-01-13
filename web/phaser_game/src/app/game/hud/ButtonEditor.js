@@ -99,8 +99,11 @@ class ButtonEditor extends Button
         this.setInteractive()
         .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
             // activar movimiento del Player, Colisión
-            this.scene._test_start = true;
-            this.scene.createCollider();
+            if (this.scene._editor_manager._mode != EditorMode.TEST)
+                this.scene._editor_manager.setMode(EditorMode.TEST, {});
+            else
+                this.scene._editor_manager.setMode(EditorMode.IDLE, {});
+            //this.scene.createCollider();
         });
 
     }
