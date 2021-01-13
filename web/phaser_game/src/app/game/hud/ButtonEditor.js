@@ -29,6 +29,10 @@ class ButtonEditor extends Button
                 this.createLoadLevelButton(config);
                 break;
 
+            case "TEST_LEVEL":
+                this.createTestLevelButton(config);
+                break;
+
         }
 
     } // constructor
@@ -85,6 +89,18 @@ class ButtonEditor extends Button
         this.setInteractive()
         .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
             
+        });
+
+    }
+
+    createTestLevelButton(config){
+        this.setTemplateInteraction(config);
+
+        this.setInteractive()
+        .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
+            // activar movimiento del Player, Colisión
+            this.scene._test_start = true;
+            this.scene.createCollider();
         });
 
     }

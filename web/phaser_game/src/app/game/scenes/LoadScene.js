@@ -100,7 +100,7 @@ class LoadScene extends Scene{
         this.load.spritesheet("editor_button_remove_entity", IMAGE_PATH + "editor/remove_button.png", {frameWidth: 100, frameHeight: 50});
         this.load.spritesheet("editor_button_save_level", IMAGE_PATH + "editor/save_button.png", {frameWidth: 100, frameHeight: 50});
         this.load.spritesheet("editor_button_load_level", IMAGE_PATH + "editor/load_button.png", {frameWidth: 100, frameHeight: 50});
-
+        this.load.spritesheet("editor_button_test_level", IMAGE_PATH + "editor/test_button.png", {frameWidth: 100, frameHeight: 50});
         //objetos
         this.load.spritesheet("fuego_sheet", IMAGE_PATH + "spritesheets/fuego.png", { frameWidth: 32, frameHeight: 32})
 
