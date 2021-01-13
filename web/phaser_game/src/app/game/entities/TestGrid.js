@@ -121,10 +121,10 @@ class EditorGrid extends Entity{
     
         var tileStrip = tileSelector.create(100, 200, 'editor_sheet');
         tileStrip.inputEnabled = true;
-        tileStrip.setInteractive();
-        var eg = this;
-        var fun = function(){eg.pickTile(eg)};
-        tileStrip.on('pointerdown', fun);
+
+        tileStrip.setInteractive().on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, (pointer) => {
+            this.pickTile(tileStrip, pointer);
+        });
     
         tileSelector.fixedToCamera = true;
     
@@ -138,7 +138,8 @@ class EditorGrid extends Entity{
     pickTile(sprite, pointer) {
         // ERROR TypeError: Cannot read property 'FloorTo' of undefined
         // importat math de phaser 3
-        currentTile = this.scene.Math.FloorTo(pointer.x, 32) / 32;
+        console.log(sprite)
+        sprite = Phaser.Math.FloorTo(pointer.x, 32) / 32;
     }
 
     updateMarker(ptestGrid) {
