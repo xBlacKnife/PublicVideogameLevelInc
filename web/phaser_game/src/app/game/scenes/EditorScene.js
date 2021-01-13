@@ -60,7 +60,6 @@ class EditorScene extends Scene{
         if (this._buttons_config != null){
             this.createButtons(this._buttons_config);
         }
-        this._test_start = false;
     } // create
 
 

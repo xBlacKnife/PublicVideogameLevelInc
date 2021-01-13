@@ -21,6 +21,8 @@ class Player extends Entity{
      */
     _key_p = null;
 
+    _idle = null;
+
     //#endregion
 
 
@@ -61,6 +63,9 @@ class Player extends Entity{
 
         this.body.collideWorldBounds = true;
 
+        console.log(this)
+
+        this.play("walk");
     }
 
 
