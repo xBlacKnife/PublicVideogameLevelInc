@@ -49,7 +49,7 @@ class LoadScene extends Scene{
 
         // Se cambia de escena, por lo que esta debera ser la 
         // ultima llamada de esta escena.
-        this.scene.start("MenuScene");
+        this.scene.start("PlayScene");
 
     } // create
 
@@ -83,7 +83,7 @@ class LoadScene extends Scene{
      */
     loadSpritesheets(){
 
-        this.load.spritesheet("player_sheet", IMAGE_PATH + "spritesheets/dude.png", { frameWidth: 32, frameHeight: 48 })
+        this.load.spritesheet("player_sheet", IMAGE_PATH + "spritesheets/player_sheet.png", { frameWidth: 45, frameHeight: 45 })
 
         // [LCM test]
         this.load.spritesheet("editor_sheet", IMAGE_PATH + "spritesheets/tilesetEditorTest.png", { frameWidth: 16, frameHeight: 16 })
@@ -146,12 +146,30 @@ class LoadScene extends Scene{
 
         // PLAYER ANIMATIONS
         this.anims.create({
-            key: 'anim_player_left',
-            frames: this.anims.generateFrameNumbers('player_sheet', { start: 0, end: 3 }),
+            key: 'idle1',
+            frames: this.anims.generateFrameNumbers('player_sheet', { start: 0, end: 5 }),
             frameRate: 10,
-            repeat: -1
+            repeat: 1
         });
         this.anims.create({
+            key: 'idle2',
+            frames: this.anims.generateFrameNumbers('player_sheet', { start: 6, end: 16 }),
+            frameRate: 10,
+            repeat: 1
+        });
+        this.anims.create({
+            key: 'walk',
+            frames: this.anims.generateFrameNumbers('player_sheet', { start: 17, end: 37 }),
+            frameRate: 10,
+            repeat: 1
+        });
+        this.anims.create({
+            key: 'jump',
+            frames: this.anims.generateFrameNumbers('player_sheet', { start: 38, end: 43 }),
+            frameRate: 10,
+            repeat: 1
+        });
+        /*this.anims.create({
             key: 'anim_player_right',
             frames: this.anims.generateFrameNumbers('player_sheet', { start: 5, end: 8 }),
             frameRate: 10,
@@ -170,7 +188,7 @@ class LoadScene extends Scene{
             frames: this.anims.generateFrameNumbers('fuego_sheet', { start: 0, end: 5 }),
             frameRate: 10,
             repeat: -1
-        });
+        });*/
     } // createAnims
 
     //#endregion
