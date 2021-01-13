@@ -18,15 +18,20 @@ class EditorManager{
 
     _info = null;
 
-    constructor(scene){
+    _grid = null;
+
+    constructor(scene, grid){
         this._scene = scene;
         this._mode = EditorMode.IDLE;
         this._info = {};
+        this._grid = grid;
     }
 
     setMode(new_mode, new_info){
         this._mode = new_mode;
         this._info = new_info;
+
+        this._grid.setGridMode(new_mode);
 
         console.log(this._mode);
     }

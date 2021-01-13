@@ -1,5 +1,5 @@
 import {Scene} from "./Scene"
-import {EditorGrid} from "../entities/TestGrid.js"
+import {EditorGrid} from "../editor/Grid.js"
 import { EditorManager } from "../editor/EditorManager";
 
 /////////////////////////////////////////////////////////////////////
@@ -14,6 +14,7 @@ class EditorScene extends Scene{
     //#region VARIABLES
 
     _editor_manager = null;
+    _editor_grid = null;
 
     //#endregion
 
@@ -38,15 +39,18 @@ class EditorScene extends Scene{
 
         this._buttons_config = this.cache.json.get("editor_scene_buttons_config"); 
 
-        this._editor_manager = new EditorManager(this);
+        this._editor_grid = new EditorGrid(this, {"position":{"x": 0.0,"y": 0.0},
+                                                  "spritesheet": "editor_sheet"});
+
+        this._editor_manager = new EditorManager(this, this._editor_grid);
 
     } // preload
 
 
     create(){        
-        this._entities.push(new EditorGrid(this, {"position":{"x": 0.0,"y": 0.0},
-                                                  "spritesheet": "editor_sheet",}))
-                                                  super.create();
+        this._entities.push(this._editor_grid);
+        super.create();
+
         if (this._buttons_config != null){
             this.createButtons(this._buttons_config);
         }
