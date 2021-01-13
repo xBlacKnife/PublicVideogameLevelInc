@@ -44,7 +44,6 @@ class Scene extends Phaser.Scene{
 
     _button_factory = null;
 
-
     //#endregion
     
 
@@ -79,7 +78,6 @@ class Scene extends Phaser.Scene{
      * Se usa para cargar los assets.
      */
     preload(){
-
     } // preload
 
 

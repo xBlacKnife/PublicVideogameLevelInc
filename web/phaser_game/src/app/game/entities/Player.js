@@ -59,6 +59,8 @@ class Player extends Entity{
             (arg1) => console.log(arg1),    // Gestion del mensaje si lo recibe
             this);                          // Le digo a la escena que me añado yo
 
+        this.body.collideWorldBounds = true;
+
     }
 
 
