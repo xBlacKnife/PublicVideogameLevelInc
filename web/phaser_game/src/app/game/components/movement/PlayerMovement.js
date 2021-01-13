@@ -76,7 +76,16 @@ class PlayerMovement extends Movement{
         //JUMP
         this._entity.addListener(
             MessageID.PLAYER_JUMP,             // Mensaje
-            (move) => this._move_up = move,  // Gestion del mensaje
+            (move) => {
+                this._entity.scene.time.addEvent({
+                    delay: 350,
+                    callback: ()=>{
+                        this._move_up = move;
+                    },
+                    callbackScope: this,
+                    loop: false
+                })
+            },  // Gestion del mensaje
             this                                // Me añado yo mismo
         );
 
@@ -86,8 +95,6 @@ class PlayerMovement extends Movement{
     } // init
 
     update(time, delta){
-        if(this._move_right)
-            this._entity.body.setVelocityX(this._velX * delta);
 
         if (this._entity.y != this._oriY){
             this._entity.scene.cameras.main.followOffset.set(this._camera_offset[0], this._camera_offset[1] + (this._entity.y - this._oriY));

@@ -6,7 +6,7 @@
                 "x": 0.25,
                 "y": 1
             },
-            "spritesheet": ["player_idle1", "player_idle2", "player_walk", "player_jump"],
+            "spritesheet": "player_sheet",
             "components":{
                 "player_movement":{
                     "velX": 5,
@@ -27,7 +27,7 @@
                 "x": 0.75,
                 "y": 0.9
             },
-            "spritesheet": ["fuego_sheet"],
+            "spritesheet": "fuego_sheet",
             "components":{
                 "enemy_movement":{
                     "velX": 0,
