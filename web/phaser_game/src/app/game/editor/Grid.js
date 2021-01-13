@@ -182,7 +182,7 @@ class EditorGrid extends Entity{
         
         if (this.scene.input.mousePointer.isDown)
         {
-            ptestGrid._levelTilemap.putTileAt(ptestGrid._currentTile, tileXY.x, tileXY.y, ptestGrid._layer);
+            ptestGrid._levelTilemap.putTileAt(ptestGrid._currentTile, tileXY.x, tileXY.y);
             console.log("Tile: " + ptestGrid._currentTile + ", pos: " + tileXY.x + ", " + tileXY.y);
         }
     }

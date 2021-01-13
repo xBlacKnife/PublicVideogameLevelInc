@@ -149,25 +149,25 @@ class LoadScene extends Scene{
         // PLAYER ANIMATIONS
         this.anims.create({
             key: 'idle1',
-            frames: this.anims.generateFrameNumbers('player_sheet', { start: 0, end: 5 }),
+            frames: this.anims.generateFrameNumbers('player_sheet', { start: 0, end: 4 }),
             frameRate: 10,
-            repeat: 1
+            repeat: -1
         });
         this.anims.create({
             key: 'idle2',
-            frames: this.anims.generateFrameNumbers('player_sheet', { start: 6, end: 16 }),
+            frames: this.anims.generateFrameNumbers('player_sheet', { start: 5, end: 14 }),
             frameRate: 10,
-            repeat: 1
+            repeat: -1
         });
         this.anims.create({
             key: 'walk',
-            frames: this.anims.generateFrameNumbers('player_sheet', { start: 17, end: 37 }),
+            frames: this.anims.generateFrameNumbers('player_sheet', { start: 15, end: 20 }),
             frameRate: 10,
-            repeat: 1
+            repeat: -1
         });
         this.anims.create({
             key: 'jump',
-            frames: this.anims.generateFrameNumbers('player_sheet', { start: 38, end: 43 }),
+            frames: this.anims.generateFrameNumbers('player_sheet', { start: 21, end: 40 }),
             frameRate: 10,
             repeat: 1
         });
