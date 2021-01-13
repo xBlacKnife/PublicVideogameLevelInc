@@ -31,8 +31,8 @@ class EditorGrid extends Entity{
      * tamaño del tile en pixeles en imagen origen
      * se asumen tiles cuadrados, ancho y alto es igual
      */
-    _tilePxSize = 16;
-    _screenTileSize = 32;
+    _tilePxSize = 32;
+    _screenTileSize = 64;
 
     /**
      * _tileNumX = cantidad de tiles a lo ancho en la imagen de origen
@@ -52,7 +52,7 @@ class EditorGrid extends Entity{
     _layer = null;
     
     _marker = null;
-    _currentTile = null;
+    _currentTile = 0;
 
     //#endregion
 
@@ -102,13 +102,14 @@ class EditorGrid extends Entity{
         //  Add a Tileset image to the map  assets/game/images/spritesheets/tilesetEditorTest.png
         this._levelTilemap.addTilesetImage('tileset', "tile_set", this._tilePxSize, this._tilePxSize);
 
-        var tileset = this._levelTilemap.getTileset('tileset'); 
+        var tileset = this._levelTilemap.getTileset('tileset');
 
         //-- [DESDE JSON, pillar los datos del tilemap]  
         this._levelTilemap.createBlankDynamicLayer("editorLayer", tileset);
 
         this._layer = this._levelTilemap.getLayer("editorLayer");
-        
+        this._layer.setSize(2);
+
         //  Create our tile selector at the top of the screen
         this.createTileSelector();
 
@@ -172,7 +173,7 @@ class EditorGrid extends Entity{
         // console.log(sprite)
         //pGrid._currentTile = 
         var aux = Math.floor(pointer.x / this._tilePxSize);
-        pGrid._currentTile = aux;
+        pGrid._currentTile = (pGrid._currentTile +1)%12;
     }
 
     updateMarker(ptestGrid) {
@@ -183,7 +184,9 @@ class EditorGrid extends Entity{
         if (this.scene.input.mousePointer.isDown)
         {
             if(this._currentMode == "PUT_ENTITY"){
+                var scaleFact = (this._screenTileSize/ this._tilePxSize);
                 ptestGrid._levelTilemap.putTileAt(ptestGrid._currentTile, tileXY.x, tileXY.y, ptestGrid._layer);
+
                 console.log("AddTile: " + ptestGrid._currentTile + ", pos: " + tileXY.x + ", " + tileXY.y);
             }
             else if (this._currentMode == "REMOVE_ENTITY"){

@@ -10,6 +10,7 @@ const IMAGE_PATH = ASSETS_PATH + "images/";
 const SOUND_PATH = ASSETS_PATH + "sounds/";
 const FONT_PATH = ASSETS_PATH + "fonts/";
 const CONFIG_JSON_PATH = ASSETS_PATH + "config_jsons/";
+const TILES_PATH = ASSETS_PATH + "tilemaps/tiles/";
 
 /**
  * Clase LoadScene
@@ -75,7 +76,7 @@ class LoadScene extends Scene{
         this.load.image("jung_3", IMAGE_PATH + "parallax/jungle/jung_3.png");
         this.load.image("jung_4", IMAGE_PATH + "parallax/jungle/jung_4.png");
 
-        this.load.image("tile_set_img", IMAGE_PATH + "spritesheets/tilesetEditorTest.png")
+        this.load.image("tile_set_img", TILES_PATH + "tilesetEditorTest.png")
 
     } // loadImages
 
@@ -88,7 +89,7 @@ class LoadScene extends Scene{
         this.load.spritesheet("player_sheet", IMAGE_PATH + "spritesheets/player_sheet.png", { frameWidth: 45, frameHeight: 45 })
 
         // tileset
-        this.load.spritesheet("tile_set", IMAGE_PATH + "spritesheets/tilesetEditorTest.png", { frameWidth: 16, frameHeight: 16 })
+        this.load.spritesheet("tile_set", TILES_PATH + "tilesetEditorTest.png", { frameWidth: 32, frameHeight: 32 })
 
         // Botones Menu Principal
         this.load.spritesheet("menu_button_control", IMAGE_PATH + "menu/control_button.png", {frameWidth: 66, frameHeight: 75});
