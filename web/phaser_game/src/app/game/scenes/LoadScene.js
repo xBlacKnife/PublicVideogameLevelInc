@@ -49,7 +49,7 @@ class LoadScene extends Scene{
 
         // Se cambia de escena, por lo que esta debera ser la 
         // ultima llamada de esta escena.
-        this.scene.start("PlayScene");
+        this.scene.start("MenuScene");
 
     } // create
 
@@ -75,6 +75,8 @@ class LoadScene extends Scene{
         this.load.image("jung_3", IMAGE_PATH + "parallax/jungle/jung_3.png");
         this.load.image("jung_4", IMAGE_PATH + "parallax/jungle/jung_4.png");
 
+        this.load.image("tile_set_img", IMAGE_PATH + "spritesheets/tilesetEditorTest.png")
+
     } // loadImages
 
 
@@ -85,8 +87,8 @@ class LoadScene extends Scene{
 
         this.load.spritesheet("player_sheet", IMAGE_PATH + "spritesheets/player_sheet.png", { frameWidth: 45, frameHeight: 45 })
 
-        // [LCM test]
-        this.load.spritesheet("editor_sheet", IMAGE_PATH + "spritesheets/tilesetEditorTest.png", { frameWidth: 16, frameHeight: 16 })
+        // tileset
+        this.load.spritesheet("tile_set", IMAGE_PATH + "spritesheets/tilesetEditorTest.png", { frameWidth: 16, frameHeight: 16 })
 
         // Botones Menu Principal
         this.load.spritesheet("menu_button_control", IMAGE_PATH + "menu/control_button.png", {frameWidth: 66, frameHeight: 75});
@@ -147,25 +149,25 @@ class LoadScene extends Scene{
         // PLAYER ANIMATIONS
         this.anims.create({
             key: 'idle1',
-            frames: this.anims.generateFrameNumbers('player_sheet', { start: 0, end: 5 }),
+            frames: this.anims.generateFrameNumbers('player_sheet', { start: 0, end: 4 }),
             frameRate: 10,
-            repeat: 1
+            repeat: -1
         });
         this.anims.create({
             key: 'idle2',
-            frames: this.anims.generateFrameNumbers('player_sheet', { start: 6, end: 16 }),
+            frames: this.anims.generateFrameNumbers('player_sheet', { start: 5, end: 14 }),
             frameRate: 10,
-            repeat: 1
+            repeat: -1
         });
         this.anims.create({
             key: 'walk',
-            frames: this.anims.generateFrameNumbers('player_sheet', { start: 17, end: 37 }),
+            frames: this.anims.generateFrameNumbers('player_sheet', { start: 15, end: 20 }),
             frameRate: 10,
-            repeat: 1
+            repeat: -1
         });
         this.anims.create({
             key: 'jump',
-            frames: this.anims.generateFrameNumbers('player_sheet', { start: 38, end: 43 }),
+            frames: this.anims.generateFrameNumbers('player_sheet', { start: 21, end: 40 }),
             frameRate: 10,
             repeat: 1
         });

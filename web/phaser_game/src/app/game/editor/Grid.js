@@ -1,23 +1,12 @@
 
+import { format } from "path";
 import { Utils } from "phaser";
 import { PassThrough } from "stream";
-import {Entity} from "../entities/Entity.js";
-
+import { Entity } from "../entities/Entity.js";
+import { EditorMode } from "./EditorManager.js"
 /////////////////////////////////////////////////////////////////////
 ////////////////////////////   Grid   /////////////////////////////
 /////////////////////////////////////////////////////////////////////
-
-/**
- * Enum con los tipos de mensajes que podemos enviar
- */
-const EditorMode = {
-
-    IDLE: "IDLE",
-    PUT_ENTITY: "PUT_ENTITY", 
-    REMOVE_ENTITY: "REMOVE_ENTITY",
-    SELECT_ENTITY: "SELECT_ENTITY"
-
-}; // EditorMode
 
 
 /**
@@ -43,6 +32,7 @@ class EditorGrid extends Entity{
      * se asumen tiles cuadrados, ancho y alto es igual
      */
     _tilePxSize = 16;
+    _screenTileSize = 32;
 
     /**
      * _tileNumX = cantidad de tiles a lo ancho en la imagen de origen
@@ -59,7 +49,6 @@ class EditorGrid extends Entity{
     _screenTileY = null;
 
 
-    _map = null;
     _layer = null;
     
     _marker = null;
@@ -79,12 +68,11 @@ class EditorGrid extends Entity{
     constructor(scene, config){
 
         super(scene, config);
-        this.init();
 
         // this._tilePxSize = config.tilePxSize;
         
         // this._currentMode = ModesEnum.SELECT_ENTITY;
-
+        
     } // constructor
 
 
@@ -96,43 +84,40 @@ class EditorGrid extends Entity{
     init(){
 
         super.init();
-        
-        var tilesX = this.scene.textures.get("editor_sheet");
-        console.log(tilesX);
-        let { width, height } = this.scene.game.canvas;
 
+        let { width, height } = this.scene.game.canvas;
         // [JSON]
         //  Creates a blank tilemap 
         this._levelTilemap = this.scene.make.tilemap({
-            tileWidth: this._tilePxSize,
-            tileHeight: this._tilePxSize,
+            tileWidth: this._screenTileSize,
+            tileHeight: this._screenTileSize,
             width: width,
             height: height
         });
 
         var grid = this.scene.add.grid(width/2, height/2, width, height, 
-                               this._tilePxSize, this._tilePxSize, 0x000000, 0)
+                               this._screenTileSize, this._screenTileSize, 0x000000, 0)
                                .setOutlineStyle(0xEE9144);
 
-        console.log(this._levelTilemap);
         //  Add a Tileset image to the map  assets/game/images/spritesheets/tilesetEditorTest.png
-        this._levelTilemap.addTilesetImage('tileset', "editor_sheet");
+        this._levelTilemap.addTilesetImage('tileset', "tile_set", this._tilePxSize, this._tilePxSize);
 
-        var coso = this._levelTilemap.getTileset('tileset'); 
+        var tileset = this._levelTilemap.getTileset('tileset'); 
 
-      //-- [DESDE JSON, pillar los datos del tilemap]  
-
-        this._levelTilemap.createBlankDynamicLayer("editorLayer", coso);
+        //-- [DESDE JSON, pillar los datos del tilemap]  
+        this._levelTilemap.createBlankDynamicLayer("editorLayer", tileset);
 
         this._layer = this._levelTilemap.getLayer("editorLayer");
         
         //  Create our tile selector at the top of the screen
         this.createTileSelector();
-        var eg = this;
-        var fun = function(){eg.updateMarker(eg)};
-        this.scene.input.on('pointermove', fun);
-        this.scene.input.on('pointerdown', fun);
-        //this.scene.input.on('pointerdown', function(){eg.createTileUnderPointer(this._currentTile, this._layer)});
+
+        this.scene.input.on(Phaser.Input.Events.GAMEOBJECT_POINTER_MOVE, (pointer) => {
+            this.updateMarker(this);
+        });
+        this.scene.input.on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, (pointer) => {
+            this.updateMarker(this);
+        });
     }
 
     update(time, delta){
@@ -152,7 +137,7 @@ class EditorGrid extends Entity{
      */
     addEntity(entity, pointer)
     {
-        this._levelTilemap.add
+        //this._levelTilemap.add
     }
 
     createTileSelector() {
@@ -160,14 +145,14 @@ class EditorGrid extends Entity{
         //  Our tile selection window
         var tileSelector = this.scene.add.group();
     
-        var tileSelectorBackground = this.scene.make.graphics();
-        tileSelectorBackground.fillStyle(0x000000, 0.5);
-        tileSelectorBackground.fillRect(0, 0, 800, 34);
+        var tileSelectorBackground = this.scene.make.graphics()
+                                    .fillRect(0, 0, 1000, 200)
+                                    .fillStyle(0xAAAAAA, 0.5);
 
     
         tileSelector.add(tileSelectorBackground);
     
-        var tileStrip = tileSelector.create(100, 200, 'editor_sheet');
+        var tileStrip = tileSelector.create(96, 8, "tile_set_img");
         tileStrip.inputEnabled = true;
 
         tileStrip.setInteractive().on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, (pointer) => {
@@ -185,7 +170,9 @@ class EditorGrid extends Entity{
 
     pickTile(pGrid, pointer) {
         // console.log(sprite)
-        pGrid._currentTile = Phaser.Math.FloorTo(pointer.x, 16) / 16;
+        //pGrid._currentTile = 
+        var aux = Math.floor(pointer.x / this._tilePxSize);
+        pGrid._currentTile = aux;
     }
 
     updateMarker(ptestGrid) {
@@ -196,7 +183,7 @@ class EditorGrid extends Entity{
         this._marker.x = this._levelTilemap.tileToWorldX(tileXY.x);
         this._marker.y = this._levelTilemap.tileToWorldY(tileXY.y);
 
-        if (this.scene.input.mousePointer.isDown && tileXY != null)
+        if (this.scene.input.mousePointer.isDown)
         {
             if(this._currentMode == "PUT_ENTITY"){
                 ptestGrid._levelTilemap.putTileAt(ptestGrid._currentTile, tileXY.x, tileXY.y, ptestGrid._layer);
@@ -210,7 +197,6 @@ class EditorGrid extends Entity{
             }
             
         }
-
     }
     //#endregion
 
