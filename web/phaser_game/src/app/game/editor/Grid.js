@@ -164,7 +164,7 @@ class EditorGrid extends Entity{
         //  Our painting marker
         this._marker = this.scene.add.graphics();
         this._marker.lineStyle(2, 0x000000, 1);
-        this._marker.strokeRect(0, 0, 16, 16);
+        this._marker.strokeRect(0, 0, this._levelTilemap.tileWidth, this._levelTilemap.tileHeight);
     
     }
 
