@@ -43,8 +43,6 @@ class PlayScene extends Scene{
     
     create(){
 
-        this.add.text(0, 0, "PLAY");
-
         // Crea las entidades
         if (this._entities_config != null){
 

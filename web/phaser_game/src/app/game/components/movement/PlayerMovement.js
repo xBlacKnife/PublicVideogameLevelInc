@@ -83,31 +83,19 @@ class PlayerMovement extends Movement{
             this                                // Me añado yo mismo
         );
 
-         //Camera Follow Player
-         this._entity.scene.cameras.main.startFollow(this._entity.body);
+        //Camera Follow Player
+        this._entity.scene.cameras.startFollow(this._entity);
         //gravity
-         this._entity.body.setGravityY(300); 
+        this._entity.body.setGravityY(500); 
     } // init
 
     update(time, delta){
+        this._entity.body.setVelocityX(this._velX * delta);
+        //Jump
+        if (this._move_up)
 
-        // Si se quiere mover a la izquierda
-       // if (this._move_left) 
-            // Muevete a la izquierda
-       //     this._entity.body.setVelocityX(-this._velX * delta);
-        // Si se quiere mover a la derecha
-     //   else if (this._move_right)
-            // Muevete a la derecha
-            this._entity.body.setVelocityX(this._velX * delta);
-            //Jump
-            if (this._move_up)
-          
-            this._entity.body.setVelocityY(-330);
-        // Si no se quiere mover
-     //   else
-            // No te muevas
-       //     this._entity.body.setVelocityX(0);
-    
+        this._entity.body.setVelocityY(-250);
+
 
 
     } // update

@@ -4,13 +4,13 @@
             "name" : "player",
             "position":{
                 "x": 0.25,
-                "y": 0.5
+                "y": 1
             },
             "spritesheet": "player_sheet",
             "components":{
                 "player_movement":{
-                    "velX": 10,
-                    "velY": 10
+                    "velX": 5,
+                    "velY": 0
                 },
                 "keyboard_controller":{
                     "up": "W",
