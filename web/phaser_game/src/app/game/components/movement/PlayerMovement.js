@@ -84,8 +84,9 @@ class PlayerMovement extends Movement{
         );
 
          //Camera Follow Player
-         this._entity.scene.cameras.main.startFollow(this._entity.body);
-        //gravity
+         //this._entity.scene.cameras.main.startFollow(this._entity.body);
+        //gravity && colision con interfaz borders
+         this._entity.body.collideWorldBounds = true;
          this._entity.body.setGravityY(300); 
     } // init
 
@@ -99,9 +100,11 @@ class PlayerMovement extends Movement{
      //   else if (this._move_right)
             // Muevete a la derecha
             this._entity.body.setVelocityX(this._velX * delta);
-            //Jump
-            if (this._move_up)
-          
+            
+            this._entity.scene.cameras.main.x+=-2.8;
+            //Jump cuando esta en el suelo 
+            if (this._move_up && this._entity.body.touching.down)
+            
             this._entity.body.setVelocityY(-330);
         // Si no se quiere mover
      //   else
