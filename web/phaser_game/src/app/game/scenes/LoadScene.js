@@ -75,6 +75,8 @@ class LoadScene extends Scene{
         this.load.image("jung_3", IMAGE_PATH + "parallax/jungle/jung_3.png");
         this.load.image("jung_4", IMAGE_PATH + "parallax/jungle/jung_4.png");
 
+        this.load.image("tile_set_img", IMAGE_PATH + "spritesheets/tilesetEditorTest.png")
+
     } // loadImages
 
 

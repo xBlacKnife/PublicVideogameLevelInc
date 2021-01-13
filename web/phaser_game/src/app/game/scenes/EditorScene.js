@@ -1,5 +1,5 @@
 import {Scene} from "./Scene"
-import {EditorGrid} from "../entities/TestGrid.js"
+import {EditorGrid} from "../editor/Grid.js"
 import { EditorManager, EditorMode } from "../editor/EditorManager";
 import{ParallaxScroll} from "../parallax/ParallaxScroll"
 
