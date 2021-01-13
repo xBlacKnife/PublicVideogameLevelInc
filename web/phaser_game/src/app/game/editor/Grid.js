@@ -131,6 +131,8 @@ class EditorGrid extends Entity{
         var eg = this;
         var fun = function(){eg.updateMarker(eg)};
         this.scene.input.on('pointermove', fun);
+        this.scene.input.on('pointerdown', fun);
+        //this.scene.input.on('pointerdown', function(){eg.createTileUnderPointer(this._currentTile, this._layer)});
     }
 
     update(time, delta){
@@ -193,9 +195,17 @@ class EditorGrid extends Entity{
         
         if (this.scene.input.mousePointer.isDown && tileXY != null)
         {
-            ptestGrid._levelTilemap.putTileAt(ptestGrid._currentTile, tileXY.x, tileXY.y, ptestGrid._layer);
-            console.log("Tile: " + ptestGrid._currentTile + ", pos: " + tileXY.x + ", " + tileXY.y);
+            if(this._currentMode == "PUT_ENTITY"){
+                ptestGrid._levelTilemap.putTileAt(ptestGrid._currentTile, tileXY.x, tileXY.y, ptestGrid._layer);
+                console.log("AddTile: " + ptestGrid._currentTile + ", pos: " + tileXY.x + ", " + tileXY.y);
+            }
+            else if (this._currentMode == "REMOVE_ENTITY"){
+                ptestGrid._levelTilemap.removeTileAt(tileXY.x, tileXY.y, ptestGrid._layer);
+                console.log("RemoveTile: " + ptestGrid._currentTile + ", pos: " + tileXY.x + ", " + tileXY.y);
+            }
+            
         }
+
     }
     //#endregion
 
