@@ -13,7 +13,18 @@ const MessageID = {
     PLAYER_JUMP: "PLAYER_JUMP",
     PLAYER_LEFT: "PLAYER_LEFT",
     PLAYER_RIGHT: "PLAYER_RIGHT",
-    PLAYER_FLOOR: "PLAYER_FLOOR"
+    PLAYER_FLOOR: "PLAYER_FLOOR",
+
+
+/////////////////////////////////////////////////////////////////////
+
+
+    PUT_ENTITY: "PUT_ENTITY", 
+    REMOVE_ENTITY: "REMOVE_ENTITY",
+    SELECT_ENTITY: "SELECT_ENTITY",
+    EDITOR_TEST: "EDITOR_TEST",
+    EDITOR_IDLE: "EDITOR_IDLE"
+
 
 
 }; // MessageID

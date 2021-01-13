@@ -1,5 +1,6 @@
 import { Button } from "./Button";
 import {EditorMode} from "../editor/EditorManager"
+import {MessageID} from "../listener_pattern/Messages"
 
 class ButtonEditor extends Button
 {
@@ -41,12 +42,13 @@ class ButtonEditor extends Button
 /////////////////////////////////////////////////////////////////////
 
 
+
     createPutEntityButton(config){
         this.setTemplateInteraction(config);
 
         this.setInteractive()
         .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
-            this.scene._editor_manager.setMode(EditorMode.PUT_ENTITY, {});
+            this.scene.events.emit(MessageID.PUT_ENTITY, {}); 
         });
 
     }
@@ -57,7 +59,7 @@ class ButtonEditor extends Button
 
         this.setInteractive()
         .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
-            this.scene._editor_manager.setMode(EditorMode.REMOVE_ENTITY, {});
+            this.scene.events.emit(MessageID.REMOVE_ENTITY, {});
         });
 
     }
@@ -68,7 +70,7 @@ class ButtonEditor extends Button
 
         this.setInteractive()
         .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
-            this.scene._editor_manager.setMode(EditorMode.SELECT_ENTITY, {});
+            this.scene.events.emit(MessageID.SELECT_ENTITY, {});
         });
 
     }
@@ -100,9 +102,9 @@ class ButtonEditor extends Button
         .on(Phaser.Input.Events.GAMEOBJECT_POINTER_DOWN, () => {
             // activar movimiento del Player, Colisión
             if (this.scene._editor_manager._mode != EditorMode.TEST)
-                this.scene._editor_manager.setMode(EditorMode.TEST, {});
+                this.scene.events.emit(MessageID.EDITOR_TEST, {});
             else
-                this.scene._editor_manager.setMode(EditorMode.IDLE, {});
+                this.scene.events.emit(MessageID.EDITOR_TEST, {});
             //this.scene.createCollider();
         });
 

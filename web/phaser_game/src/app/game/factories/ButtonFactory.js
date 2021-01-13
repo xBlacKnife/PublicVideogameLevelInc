@@ -1,5 +1,6 @@
 import {ButtonEditor} from "../hud/ButtonEditor"
 import {ButtonMenu} from "../hud/ButtonMenu"
+import { Pannel } from "../hud/Pannel";
 
 import {Factory} from "./Factory.js"
 
@@ -16,6 +17,7 @@ class ButtonFactory extends Factory{
 
         this._factory["button_editor"] = ButtonEditor;
         this._factory["button_menu"] = ButtonMenu;
+        this._factory["pannel"] = Pannel;
 
     } // constructor
 

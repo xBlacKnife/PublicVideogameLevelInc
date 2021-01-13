@@ -77,6 +77,8 @@ class LoadScene extends Scene{
 
         this.load.image("tile_set_img", IMAGE_PATH + "spritesheets/tilesetEditorTest.png")
 
+        this.load.image("items_pannel", IMAGE_PATH + "editor/items_pannel.png");
+
     } // loadImages
 
 
