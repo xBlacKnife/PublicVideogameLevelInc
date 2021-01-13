@@ -1,4 +1,6 @@
 
+import { Utils } from "phaser";
+import { PassThrough } from "stream";
 import {MessageID} from "../listener_pattern/Messages";
 import {Entity} from "./Entity.js";
 
@@ -25,7 +27,7 @@ class EditorGrid extends Entity{
     //#endregion
 
 
-/////////////////////////////////////////////////////////////////////    
+ /////////////////////////////////////////////////////////////////////    
 
 
     /**
@@ -51,21 +53,29 @@ class EditorGrid extends Entity{
         super.init();
 
         //  Creates a blank tilemap
-        this._map = this.scene.add.tilemap();
-        //  Add a Tileset image to the map
-        coso = this._map.addTilesetImage("editor_sheet", null, 16, 16);
+        this._map = this.scene.make.tilemap({
+            // data: tileIdxArray,  // [ [], [], ... ]
+            tileWidth: 16,
+            tileHeight: 16,
+            width: 12,
+            height: 1
+        });
+
+        //  Add a Tileset image to the map  assets/game/images/spritesheets/tilesetEditorTest.png
+        this._map.addTilesetImage('tileset', "editor_sheet");
+
+        var coso = this._map.getTileset('tileset'); 
+
+
+        this._map.createBlankDynamicLayer("editorLayer", coso);
+
+        this._layer = this._map.getLayer("editorLayer");
         
-        alert(typeof(coso))
-
-        this._layer = this._map.createDynamicLayer("level", "editor_sheet");
-
-        //  Resize the world
-        this._layer.resizeWorld();
-
         //  Create our tile selector at the top of the screen
-        createTileSelector();
-
-        this.scene.input.addMoveCallback(updateMarker, this);
+        this.createTileSelector();
+        var eg = this;
+        var fun = function(){eg.updateMarker(eg)};
+        this.scene.input.on('pointermove', fun);
 
         this._cursors = this.scene.input.keyboard.createCursorKeys();
     }
@@ -103,39 +113,44 @@ class EditorGrid extends Entity{
         var tileSelector = this.scene.add.group();
     
         var tileSelectorBackground = this.scene.make.graphics();
-        tileSelectorBackground.beginFill(0x000000, 0.5);
-        tileSelectorBackground.drawRect(0, 0, 800, 34);
-        tileSelectorBackground.endFill();
+        tileSelectorBackground.fillStyle(0x000000, 0.5);
+        tileSelectorBackground.fillRect(0, 0, 800, 34);
+
     
         tileSelector.add(tileSelectorBackground);
     
-        var tileStrip = tileSelector.create(1, 1, 'editor_sheet');
+        var tileStrip = tileSelector.create(100, 200, 'editor_sheet');
         tileStrip.inputEnabled = true;
-        tileStrip.events.onInputDown.add(pickTile, this);
+        tileStrip.setInteractive();
+        var eg = this;
+        var fun = function(){eg.pickTile(eg)};
+        tileStrip.on('pointerdown', fun);
     
         tileSelector.fixedToCamera = true;
     
         //  Our painting marker
         this._marker = this.scene.add.graphics();
         this._marker.lineStyle(2, 0x000000, 1);
-        this._marker.drawRect(0, 0, 32, 32);
+        this._marker.fillRect(0, 0, 32, 32);
     
     }
 
     pickTile(sprite, pointer) {
-
-        currentTile = this.scene.math.snapToFloor(pointer.x, 32) / 32;
-    
+        // ERROR TypeError: Cannot read property 'FloorTo' of undefined
+        // importat math de phaser 3
+        currentTile = this.scene.Math.FloorTo(pointer.x, 32) / 32;
     }
 
-    updateMarker() {
+    updateMarker(ptestGrid) {
 
-        this._marker.x = this._layer.getTileX(this.scene.input.activePointer.worldX) * 32;
-        this._marker.y =this. _layer.getTileY(this.scene.input.activePointer.worldY) * 32;
+        
+        var tilePoint = ptestGrid._map.getTileAtWorldXY(this.scene.input.activePointer.worldX, 
+                                                  this.scene.input.activePointer.worldY, true, 
+                                                  this.scene.cameras.main, ptestGrid._layer);
     
-        if (this.scene.input.mousePointer.isDown)
+        if (this.scene.input.mousePointer.isDown && tilePoint != null)
         {
-            this._map.putTile(this._currentTile, this._layer.getTileX(this._marker.x), this._layer.getTileY(this._marker.y), this._layer);
+            ptestGrid._map.putTileAt(ptestGrid._currentTile, tilePoint.x, tilePoint.y, ptestGrid._layer);
         }
     }
     //#endregion
