@@ -91,7 +91,7 @@ class PlayerMovement extends Movement{
     } // init
 
     update(time, delta){
-
+        if(this._entity.scene._test_start == true){
         // Si se quiere mover a la izquierda
        // if (this._move_left) 
             // Muevete a la izquierda
@@ -107,10 +107,11 @@ class PlayerMovement extends Movement{
             
             this._entity.body.setVelocityY(-330);
         // Si no se quiere mover
-     //   else
+        } else{
             // No te muevas
-       //     this._entity.body.setVelocityX(0);
-    
+            this._entity.body.setVelocityX(0);
+            this._entity.body.setVelocityY(0);
+        }
 
 
     } // update
