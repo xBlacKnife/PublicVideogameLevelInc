@@ -135,10 +135,10 @@ class EditorGrid extends Entity{
     
     }
 
-    pickTile(sprite, pointer) {
+    pickTile(ptestGrid) {
         // ERROR TypeError: Cannot read property 'FloorTo' of undefined
         // importat math de phaser 3
-        currentTile = this.scene.Math.FloorTo(pointer.x, 32) / 32;
+        ptestGrid._currentTile = Phaser.Math.FloorTo(this.scene.input.activePointer.worldX, 32) / 32;
     }
 
     updateMarker(ptestGrid) {
