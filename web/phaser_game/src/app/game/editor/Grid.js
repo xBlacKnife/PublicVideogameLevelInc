@@ -37,7 +37,7 @@ class EditorGrid extends Entity{
      * modo de edicion
      * PUT_ENTITY, REMOVE_ENTITY, SELECT_ENTITY
      */
-    _currentMode = null;
+    _currentMode = EditorMode.PUT_ENTITY;
 
     /**
      * tamaño del tile en pixeles en imagen origen
