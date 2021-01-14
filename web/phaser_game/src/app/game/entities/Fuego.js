@@ -7,7 +7,7 @@ class Fuego extends Enemy{
 
     init(){
         super.init();
-        this.play('burning',false);
+        this.play('idlefuego',false);
     }
 
     update(time, delta){

@@ -102,6 +102,56 @@
             "function":{
                 "type": "TEST_LEVEL"
             }
+        },
+        {
+            "name": "put_tile_button",
+            "type": "button_put_item_editor",
+            "position": {
+                "x": 0.45,
+                "y": 0.05
+            },
+            "scale": {
+                "x": 0.5,
+                "y": 0.5
+            },
+            "texture": "editor_button_test_level",
+            "states":["up", "over"],
+            "function":{
+                "type": "TILE"
+            }
+        },
+        {
+            "name": "put_go_button",
+            "type": "button_put_item_editor",
+            "position": {
+                "x": 0.55,
+                "y": 0.05
+            },
+            "scale": {
+                "x": 0.5,
+                "y": 0.5
+            },
+            "texture": "editor_button_test_level",
+            "states":["up", "over"],
+            "function":{
+                "type": "GAME_OBJECT"
+            }, 
+            "entity_conf":
+                    {
+                        "name" : "fuego", 
+                        "position":{
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "spritesheet": ["fuego_sheet"],
+                        "components":{
+                            "enemy_movement":{
+                                "velX": 0,
+                                "velY": 0
+                            }
+                        }
+                    }
         }
+
     ]
 }

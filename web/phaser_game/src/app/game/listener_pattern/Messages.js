@@ -7,13 +7,16 @@ const MessageID = {
     PLAYER_KILL_ENEMY: "PLAYER_KILL_ENEMY",
     
 
-/////////////////////////////////////////////////////////////////////
+ /////////////////////////////////////////////////////////////////////
 
 
     PLAYER_JUMP: "PLAYER_JUMP",
     PLAYER_LEFT: "PLAYER_LEFT",
-    PLAYER_RIGHT: "PLAYER_RIGHT"
-
+    PLAYER_RIGHT: "PLAYER_RIGHT",
+ 
+ /////////////////////////////////////////////////////////////////////
+    ACTIVATE_PUT_ITEM_BUTTONS: "ACTIVATE_PUT_ITEM_BUTTONS",
+    DEACTIVATE_PUT_ITEM_BUTTONS: "DEACTIVATE_PUT_ITEM_BUTTONS"
 
 }; // MessageID
 

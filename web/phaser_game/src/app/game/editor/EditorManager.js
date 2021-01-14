@@ -1,3 +1,5 @@
+import {MessageID} from "../listener_pattern/Messages";
+
 /**
  * Enum con los tipos de mensajes que podemos enviar
  */
@@ -34,9 +36,17 @@ class EditorManager{
 
         this._grid.setGridMode(new_mode);
 
+        if(new_mode === EditorMode.PUT_ENTITY){
+            this._scene.events.emit(MessageID.ACTIVATE_PUT_ITEM_BUTTONS);     // Informacion que lleva el mensaje
+        }else{
+            this._scene.events.emit(MessageID.DEACTIVATE_PUT_ITEM_BUTTONS);     // Informacion que lleva el mensaje
+        }
         console.log(this._mode);
     }
 
+    getCurrentMode(){
+        return this._mode;
+    }
 }
 
 

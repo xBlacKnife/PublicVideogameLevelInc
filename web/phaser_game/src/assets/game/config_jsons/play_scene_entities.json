@@ -27,7 +27,7 @@
                 "x": 0.75,
                 "y": 0.9
             },
-            "spritesheet": ["fuego_sheet"],
+            "spritesheet": ["fuego_idlefuego"],
             "components":{
                 "enemy_movement":{
                     "velX": 0,

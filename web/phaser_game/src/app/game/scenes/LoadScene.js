@@ -172,13 +172,15 @@ class LoadScene extends Scene{
             frameRate: 10,
             repeat: 1
         });
-        /*this.anims.create({
-            key: 'anim_player_right',
-            frames: this.anims.generateFrameNumbers('player_sheet', { start: 5, end: 8 }),
+
+        // FIRE ANIMATIONS
+        this.anims.create({
+            key: 'idlefuego',
+            frames: this.anims.generateFrameNumbers('fuego_sheet', { start: 0, end: 5 }),
             frameRate: 10,
             repeat: -1
         });
-        this.anims.create({
+        /*this.anims.create({
             key: 'anim_player_idle',
             frames: this.anims.generateFrameNumbers('player_sheet', { start: 4, end: 4 }),
             frameRate: 10,
