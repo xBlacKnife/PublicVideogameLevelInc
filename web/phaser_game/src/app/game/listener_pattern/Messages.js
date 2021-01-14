@@ -15,8 +15,21 @@ const MessageID = {
     PLAYER_RIGHT: "PLAYER_RIGHT",
  
  /////////////////////////////////////////////////////////////////////
+ PLAYER_FLOOR: "PLAYER_FLOOR",
+ 
+ 
+ /////////////////////////////////////////////////////////////////////
     ACTIVATE_PUT_ITEM_BUTTONS: "ACTIVATE_PUT_ITEM_BUTTONS",
-    DEACTIVATE_PUT_ITEM_BUTTONS: "DEACTIVATE_PUT_ITEM_BUTTONS"
+    DEACTIVATE_PUT_ITEM_BUTTONS: "DEACTIVATE_PUT_ITEM_BUTTONS",
+
+
+    PUT_ENTITY: "PUT_ENTITY", 
+    REMOVE_ENTITY: "REMOVE_ENTITY",
+    SELECT_ENTITY: "SELECT_ENTITY",
+    EDITOR_TEST: "EDITOR_TEST",
+    EDITOR_IDLE: "EDITOR_IDLE"
+
+
 
 }; // MessageID
 

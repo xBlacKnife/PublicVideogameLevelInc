@@ -78,6 +78,8 @@ class LoadScene extends Scene{
 
         this.load.image("tile_set_img", TILES_PATH + "tilesetEditorTest.png")
 
+        this.load.image("items_pannel", IMAGE_PATH + "editor/items_pannel.png");
+
     } // loadImages
 
 
@@ -152,13 +154,13 @@ class LoadScene extends Scene{
             key: 'idle1',
             frames: this.anims.generateFrameNumbers('player_sheet', { start: 0, end: 4 }),
             frameRate: 10,
-            repeat: -1
+            repeat: 1
         });
         this.anims.create({
             key: 'idle2',
             frames: this.anims.generateFrameNumbers('player_sheet', { start: 5, end: 14 }),
             frameRate: 10,
-            repeat: -1
+            repeat: 1
         });
         this.anims.create({
             key: 'walk',
@@ -194,6 +196,7 @@ class LoadScene extends Scene{
             frameRate: 10,
             repeat: -1
         });*/
+
     } // createAnims
 
     //#endregion

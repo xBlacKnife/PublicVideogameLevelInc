@@ -50,7 +50,7 @@ class Entity extends Phaser.Physics.Arcade.Sprite{
             scene, 
             config.position.x * scene.sys.canvas.width, 
             config.position.y * scene.sys.canvas.height, 
-            config.spritesheet[0]
+            config.spritesheet
         );
 
         this._config = config;

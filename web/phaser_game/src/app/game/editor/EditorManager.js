@@ -1,4 +1,4 @@
-import {MessageID} from "../listener_pattern/Messages";
+import {MessageID} from "../listener_pattern/Messages"
 
 /**
  * Enum con los tipos de mensajes que podemos enviar
@@ -28,6 +28,35 @@ class EditorManager{
         this._mode = EditorMode.IDLE;
         this._info = {};
         this._grid = grid;
+
+
+    }
+
+    createListeners(){
+        this._scene.events.addListener(
+            MessageID.PUT_ENTITY,  // Mensaje que gestionara
+            (info) => this.setMode(EditorMode.PUT_ENTITY, info),    // Gestion del mensaje si lo recibe
+            this);  
+
+        this._scene.events.addListener(
+            MessageID.SELECT_ENTITY,  // Mensaje que gestionara
+            (info) => this.setMode(EditorMode.SELECT_ENTITY, info),    // Gestion del mensaje si lo recibe
+            this); 
+
+        this._scene.events.addListener(
+            MessageID.REMOVE_ENTITY,  // Mensaje que gestionara
+            (info) => this.setMode(EditorMode.REMOVE_ENTITY, info),    // Gestion del mensaje si lo recibe
+            this);  
+
+        this._scene.events.addListener(
+            MessageID.EDITOR_TEST,  // Mensaje que gestionara
+            (info) => this.setMode(EditorMode.TEST, info),    // Gestion del mensaje si lo recibe
+            this); 
+
+        this._scene.events.addListener(
+            MessageID.EDITOR_IDLE,  // Mensaje que gestionara
+            (info) => this.setMode(EditorMode.IDLE, info),    // Gestion del mensaje si lo recibe
+            this);  
     }
 
     setMode(new_mode, new_info){
