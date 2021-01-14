@@ -50,7 +50,7 @@ class LoadScene extends Scene{
 
         // Se cambia de escena, por lo que esta debera ser la 
         // ultima llamada de esta escena.
-        this.scene.start("MenuScene");
+        this.scene.start("EditorScene");
 
     } // create
 
@@ -107,7 +107,7 @@ class LoadScene extends Scene{
         this.load.spritesheet("editor_button_load_level", IMAGE_PATH + "editor/load_button.png", {frameWidth: 100, frameHeight: 50});
         this.load.spritesheet("editor_button_test_level", IMAGE_PATH + "editor/test_button.png", {frameWidth: 100, frameHeight: 50});
         //objetos
-        this.load.spritesheet("fuego_sheet", IMAGE_PATH + "spritesheets/fuego.png", { frameWidth: 32, frameHeight: 32})
+        this.load.spritesheet("fuego_sheet", IMAGE_PATH + "spritesheets/fuego_sheet.png", { frameWidth: 32, frameHeight: 32})
 
     } // loadSpritesheets
 

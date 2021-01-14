@@ -178,30 +178,117 @@ class EditorGrid extends Entity{
     pickPick(pGrid, pointer){
         var tile = pGrid._levelTilemap.getTileAt(pointer.x, pointer.y);
 
-        if(pGrid._levelTilemap.getTileAt(pointer.x, pointer.y-1) === null && 
-           pGrid._levelTilemap.getTileAt(pointer.x-1, pointer.y) === null && 
-           pGrid._levelTilemap.getTileAt(pointer.x+1, pointer.y) === null && 
-           pGrid._levelTilemap.getTileAt(pointer.x, pointer.y+1) === null ){
-                pGrid._levelTilemap.putTileAt(4, pointer.x, pointer.y, pGrid._layer);
+        /*
+            0   1   2
+            3   4   5
+            6   7   8
+        */
+        var tile_matrix = [
+            pGrid._levelTilemap.getTileAt(pointer.x - 1, pointer.y - 1), 
+            pGrid._levelTilemap.getTileAt(pointer.x, pointer.y - 1), 
+            pGrid._levelTilemap.getTileAt(pointer.x + 1, pointer.y - 1),
+            pGrid._levelTilemap.getTileAt(pointer.x - 1, pointer.y), 
+            pGrid._levelTilemap.getTileAt(pointer.x, pointer.y), 
+            pGrid._levelTilemap.getTileAt(pointer.x + 1, pointer.y),
+            pGrid._levelTilemap.getTileAt(pointer.x - 1, pointer.y + 1), 
+            pGrid._levelTilemap.getTileAt(pointer.x, pointer.y + 1), 
+            pGrid._levelTilemap.getTileAt(pointer.x + 1, pointer.y + 1)
+        ]
+
+ 
+        /*
+            -   -   -
+            -   o   -
+            -   -   -
+        */
+        if(tile_matrix[1] === null && tile_matrix[3] === null 
+            && tile_matrix[5] === null && tile_matrix[7] === null)
+        {
+            pGrid._levelTilemap.putTileAt(10, pointer.x, pointer.y, pGrid._layer); 
         }
-        else if(pGrid._levelTilemap.getTileAt(pointer.x, pointer.y-1) === null && 
-           pGrid._levelTilemap.getTileAt(pointer.x-1, pointer.y) === null && 
-           pGrid._levelTilemap.getTileAt(pointer.x+1, pointer.y) != null && 
-           pGrid._levelTilemap.getTileAt(pointer.x, pointer.y+1) === null ){
-                pGrid._levelTilemap.putTileAt(9, pointer.x, pointer.y, pGrid._layer);
+        /*
+            -   x   -
+            x   o   x
+            -   x   -
+        */
+        else if(tile_matrix[1] != null && tile_matrix[3] != null 
+            && tile_matrix[5] != null && tile_matrix[7] != null)
+        {
+            pGrid._levelTilemap.putTileAt(4, pointer.x, pointer.y, pGrid._layer); 
         }
-        else if(pGrid._levelTilemap.getTileAt(pointer.x, pointer.y-1) === null && 
-           pGrid._levelTilemap.getTileAt(pointer.x-1, pointer.y) != null && 
-           pGrid._levelTilemap.getTileAt(pointer.x+1, pointer.y) != null && 
-           pGrid._levelTilemap.getTileAt(pointer.x, pointer.y+1) === null ){
-                pGrid._levelTilemap.putTileAt(10, pointer.x, pointer.y, pGrid._layer);
+        /*
+            -   x   -       -   x   -       -   x   -       -   x   -       -   x   -       -   x   -      -   x   -
+            -   o   -       x   o   -       x   o   -       -   o   x       -   o   x       -   o   -      x   o   x
+            -   -   -       -   -   -       -   x   -       -   -   -       -   x   -       -   x   -      -   -   -
+        */
+        else if(tile_matrix[1] != null){
+            if (tile_matrix[3] != null){
+                if (tile_matrix[7] === null){
+                    if(tile_matrix[5] === null)
+                        pGrid._levelTilemap.putTileAt(8, pointer.x, pointer.y, pGrid._layer);  
+                    else 
+                        pGrid._levelTilemap.putTileAt(7, pointer.x, pointer.y, pGrid._layer);
+                }
+                else{
+                    pGrid._levelTilemap.putTileAt(5, pointer.x, pointer.y, pGrid._layer);
+                }
+            }
+            else if(tile_matrix[5] != null){
+                if (tile_matrix[7] === null){
+                    pGrid._levelTilemap.putTileAt(6, pointer.x, pointer.y, pGrid._layer);
+                }
+                else{
+                    pGrid._levelTilemap.putTileAt(3, pointer.x, pointer.y, pGrid._layer);
+                }
+            }
+                else if(tile_matrix[7] != null){
+                    pGrid._levelTilemap.putTileAt(4, pointer.x, pointer.y, pGrid._layer);
+                }
+            else{
+                pGrid._levelTilemap.putTileAt(7, pointer.x, pointer.y, pGrid._layer);
+            }
         }
-        else if(pGrid._levelTilemap.getTileAt(pointer.x, pointer.y-1) === null && 
-           pGrid._levelTilemap.getTileAt(pointer.x-1, pointer.y) != null && 
-           pGrid._levelTilemap.getTileAt(pointer.x+1, pointer.y) === null && 
-           pGrid._levelTilemap.getTileAt(pointer.x, pointer.y+1) === null ){
+        /*
+            -   -   -       -   -   -       -   -   -       -   -   -
+            -   o   -       x   o   -       -   o   x       x   o   x
+            -   x   -       -   x   -       -   x   -       -   x   -
+        */
+        else if(tile_matrix[7] != null){
+            if (tile_matrix[3] != null){
+                if (tile_matrix[5] === null)
+                    pGrid._levelTilemap.putTileAt(2, pointer.x, pointer.y, pGrid._layer);
+                else
+                    pGrid._levelTilemap.putTileAt(1, pointer.x, pointer.y, pGrid._layer);
+            }
+            else if(tile_matrix[5] != null){
+                pGrid._levelTilemap.putTileAt(0, pointer.x, pointer.y, pGrid._layer);
+            }
+            else{
+                pGrid._levelTilemap.putTileAt(1, pointer.x, pointer.y, pGrid._layer);
+            }
+        }
+        /*
+            -   -   -       -   -   -
+            x   o   -       x   o   x 
+            -   -   -       -   -   -
+        */
+        else if(tile_matrix[3] != null){
+            if (tile_matrix[5] === null){
                 pGrid._levelTilemap.putTileAt(11, pointer.x, pointer.y, pGrid._layer);
+            }
+            else{
+                pGrid._levelTilemap.putTileAt(10, pointer.x, pointer.y, pGrid._layer);
+            }
         }
+        /*
+            -   -   -
+            -   o   x
+            -   -   -
+        */
+        else if(tile_matrix[5] != null){
+            pGrid._levelTilemap.putTileAt(9, pointer.x, pointer.y, pGrid._layer);
+        }
+        
     }
 
     /**  
