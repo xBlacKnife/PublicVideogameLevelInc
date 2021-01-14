@@ -21,10 +21,10 @@
     "@angular/platform-browser-dynamic": "~10.1.5",
     "@angular/router": "~10.1.5",
     "ng": "0.0.0",
-    "phaser": "^3.24.1",
+    "phaser": "^3.51.0",
     "phaser-component-library": "^2.0.0",
     "primeicons": "^4.1.0",
-    "primeng": "^11.0.0",
+    "primeng": "^11.1.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

@@ -2,6 +2,7 @@ import {Player} from "../entities/Player.js"
 import {Enemy} from "../entities/Enemy.js"
 import {EnemySlow} from "../entities/EnemySlow.js"
 import {EnemyFast} from "../entities/EnemyFast.js"
+import {Fuego} from "../entities/Fuego.js"
 
 import {Factory} from "./Factory.js"
 
@@ -29,6 +30,7 @@ class EntityFactory extends Factory{
         this._factory["enemy"] = Enemy;
         this._factory["enemy_slow"] = EnemySlow;
         this._factory["enemy_fast"] = EnemyFast;
+        this._factory["fuego"] = Fuego;
 
     } // constructor
 

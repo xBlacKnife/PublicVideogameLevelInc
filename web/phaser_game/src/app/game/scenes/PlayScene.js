@@ -1,6 +1,6 @@
-import Enemy from "../entities/Enemy.js";
-import Player from "../entities/Player.js"
 import {Scene} from "./Scene.js"
+
+import{ParallaxScroll} from "../parallax/ParallaxScroll"
 
 /////////////////////////////////////////////////////////////////////
 ///////////////////////////   PlayScene   ///////////////////////////
@@ -13,10 +13,7 @@ class PlayScene extends Scene{
 
     //#region VARIABLES
 
-    /**
-     * JSON con la configuracion de las entidades.
-     */
-    _entities_config = null;
+    _parallax_scroll = null;
 
     //#endregion
 
@@ -47,13 +44,16 @@ class PlayScene extends Scene{
 
     
     create(){
-
-        this.add.text(0, 0, "PLAY");
+        
+        this._parallax_scroll = new ParallaxScroll(this, "parallax_config", "jungle");
 
         // Crea las entidades
-        if (this._entities_config != null)
-            this.createEntities(this._entities_config);
+        if (this._entities_config != null){
 
+            this.createEntities(this._entities_config);
+            this.createCollider();
+
+        }
         // Se llama al "create" de Scene
         super.create();
 
@@ -64,6 +64,8 @@ class PlayScene extends Scene{
 
         // Se llama al "update" de Scene
         super.update(time, delta);
+
+        this._parallax_scroll.update(time, delta);
 
     } // update
 

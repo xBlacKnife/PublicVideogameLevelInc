@@ -21,6 +21,8 @@ class Player extends Entity{
      */
     _key_p = null;
 
+    _idle = null;
+
     //#endregion
 
 
@@ -59,6 +61,33 @@ class Player extends Entity{
             (arg1) => console.log(arg1),    // Gestion del mensaje si lo recibe
             this);                          // Le digo a la escena que me añado yo
 
+
+        this.addListener(
+            MessageID.PLAYER_JUMP,             // Mensaje
+            () => {
+                this.play("jump", false);
+
+                this.on("animationcomplete", () => {
+                    if (this.anims.getCurrentKey() == "jump")
+                        this.play("walk");
+                }, this)
+            },  // Gestion del mensaje
+            this                                // Me añado yo mismo
+        );
+
+        this.addListener(
+            MessageID.PLAYER_FLOOR,             // Mensaje
+            () => {
+                this.play("walk");
+            },  // Gestion del mensaje
+            this                                // Me añado yo mismo
+        );
+
+        this.body.collideWorldBounds = true;
+
+        console.log(this)
+
+        this.play("walk");
     }
 
 

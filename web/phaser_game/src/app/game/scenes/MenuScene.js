@@ -25,8 +25,7 @@ class MenuScene extends Scene{
         // Pone la imagen de fondo
         this.add.image(0, 0, 'menu_background').setOrigin(0);
 
-        // Llama al manager de botones que inicialmente los creara
-        this._buttons_manager = new ButtonManager(this, "menu_scene_buttons_config") 
+        this._buttons_config = this.cache.json.get("menu_scene_buttons_config"); 
 
     } // preload
 
@@ -34,6 +33,9 @@ class MenuScene extends Scene{
     create(){
 
         super.create();
+        if (this._buttons_config != null){
+            this.createButtons(this._buttons_config);
+        }
 
     } // create
 

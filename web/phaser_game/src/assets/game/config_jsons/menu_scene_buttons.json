@@ -1,7 +1,9 @@
 {
     "buttons":
-    {
-        "play_button": {
+    [
+        {
+            "name": "play_button",
+            "type": "button_menu",
             "position": {
                 "x": 0.125,
                 "y": 0.6
@@ -17,7 +19,9 @@
                 "next_scene": "PlayScene"
             }
         },
-        "edit_button": {
+        {
+            "name": "edit_button",
+            "type": "button_menu",
             "position": {
                 "x": 0.125,
                 "y": 0.75
@@ -33,7 +37,9 @@
                 "next_scene": "EditorScene"
             }
         },
-        "sound_button": {
+        {
+            "name": "sound_button",
+            "type": "button_menu",
             "position": {
                 "x": 0.075,
                 "y": 0.955
@@ -48,7 +54,9 @@
                 "type": "SOUND"
             }
         },
-        "control_button": {
+        {
+            "name": "control_button",
+            "type": "button_menu",
             "position": {
                 "x": 0.15,
                 "y": 0.955
@@ -63,5 +71,5 @@
                 "type": "SHOW_CONTROLS"
             }
         }
-    }
+    ]
 }
