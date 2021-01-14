@@ -50,7 +50,7 @@ class LoadScene extends Scene{
 
         // Se cambia de escena, por lo que esta debera ser la 
         // ultima llamada de esta escena.
-        this.scene.start("EditorScene");
+        this.scene.start("MenuScene");
 
     } // create
 
