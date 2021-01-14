@@ -9,20 +9,21 @@
             <form>
                 <!-- Username -->
                 <span class="p-float-label">
-                    <input id="float-input" type="text" pInputText> 
+                    <!--input id="float-input" type="text" pInputText [(ngModel)]="this.user" --> 
+                    <input id="float-input" type="text" pInputText [(ngModel)]="this.user">
                     <label for="float-input">Username</label>
                 </span>
                 <br>
                 <!-- Password -->
                 <span class="p-float-label">
-                    <input id="float-input" type="text" pInputText> 
+                    <input id="float-input" type="text" pInputText [(ngModel)]="this.psw"> 
                     <label for="float-input">Password</label>
                 </span>
                 <br>
                 <!-- botones -->
                 <div class="p-grid">
                     <div class="p-col-5">
-                        <button pButton type="button" label="Iniciar Sesión"></button>
+                        <button pButton type="button" label="Iniciar Sesión"  (click)="this.inicioSesion()" ></button>
                          &nbsp;
                         <button pButton type="button" label="Registrarse" class="p-button-success"></button>
                     </div>

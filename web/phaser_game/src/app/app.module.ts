@@ -10,6 +10,8 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { GamePlayerModule } from './views/gameplayer/gameplayer.module';
 import { PrimengNGModule } from './primeng.module';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { PrimengNGModule } from './primeng.module';
     AppRoutingModule,
     HomeModule,
     GamePlayerModule,
-    PrimengNGModule
+    PrimengNGModule,
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
