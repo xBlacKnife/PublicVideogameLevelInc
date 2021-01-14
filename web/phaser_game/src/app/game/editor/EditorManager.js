@@ -29,7 +29,7 @@ class EditorManager{
         this._info = {};
         this._grid = grid;
 
-
+        this.createListeners();
     }
 
     createListeners(){
@@ -62,7 +62,7 @@ class EditorManager{
     setMode(new_mode, new_info){
         this._mode = new_mode;
         this._info = new_info;
-
+        
         this._grid.setGridMode(new_mode);
 
         if(new_mode === EditorMode.PUT_ENTITY){
