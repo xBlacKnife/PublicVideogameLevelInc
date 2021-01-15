@@ -12,31 +12,46 @@ import { Router} from '@angular/router';
 export class LoginComponent implements OnInit {
 
   public usuario: Usuario;
-  private user: string;
-  private psw: string;
-  private value2: string;
+  public user: string;
+  public psw: string;
+  public value2: string;
 
   constructor(
     private loginService: LoginService,
     private router: Router,
-  ) { }
+  ) { 
+    this.user = "";
+    this.psw = "";
+  }
+
+ 
 
   ngOnInit(): void {
+
   }
 
 
   inicioSesion(): void {
-
-
     
       this.loginService.iniciarSesion(this.usuario).subscribe(
         response => {
 
-          //Swal.fire({ position: 'center', type: 'success', text: 'El producto fue creado correctamente.', showConfirmButton: false, timer: 2000 });
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Correcto',
+            showConfirmButton: false,
+            timer: 1500
+          })
           this.router.navigate(['home']);
         }, 
         error => {
-          //Swal.fire({ title: '¡ERROR Usuario o contraseña incorrecta!', text: error.error, type: 'error', confirmButtonText: 'Continuar', confirmButtonColor: '#007ad9' });  
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Algo anda mal!',
+            footer: 'Usuario o contraseña incorrectos'
+          })
         });
     }
 

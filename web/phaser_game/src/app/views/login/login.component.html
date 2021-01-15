@@ -6,7 +6,6 @@
 <p-card class="container" header="Login" [style]="{width: '360px'}" styleClass="p-card-shadow">
     <body>
         <div>
-            <form>
                 <!-- Username -->
                 <span class="p-float-label">
                     <!--input id="float-input" type="text" pInputText [(ngModel)]="this.user" --> 
@@ -16,7 +15,7 @@
                 <br>
                 <!-- Password -->
                 <span class="p-float-label">
-                    <input id="float-input" type="text" pInputText [(ngModel)]="this.psw"> 
+                    <input id="float-input" type="password" pInputText [(ngModel)]="this.psw"> 
                     <label for="float-input">Password</label>
                 </span>
                 <br>
@@ -27,8 +26,7 @@
                          &nbsp;
                         <button pButton type="button" label="Registrarse" class="p-button-success"></button>
                     </div>
-                </div>  
-            </form>       
+                </div>       
         </div>
     </body>
 </p-card>

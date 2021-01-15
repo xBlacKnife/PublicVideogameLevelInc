@@ -29,6 +29,7 @@ import { FormsModule } from '@angular/forms';
     PrimengNGModule,
     HttpClientModule,
     FormsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
