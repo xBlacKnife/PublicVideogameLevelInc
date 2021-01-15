@@ -1,5 +1,6 @@
 import {ComponentFactory} from "../factories/ComponentFactory.js"
 import {EntityFactory} from "../factories/EntityFactory.js"
+import {ButtonFactory} from "../factories/ButtonFactory.js"
 
 
 /////////////////////////////////////////////////////////////////////
@@ -20,6 +21,13 @@ class Scene extends Phaser.Scene{
      */
     _entities = [];
 
+    _buttons = [];
+
+
+    _entities_config = null;
+
+    _buttons_config = null;
+
 
     /**
      * Factoria de entidades que sirve para crear las entidades
@@ -34,12 +42,7 @@ class Scene extends Phaser.Scene{
      */
     _component_factory = null;
 
-
-    /**
-     * Manager de botones
-     */
-    _buttons_manager = null;
-
+    _button_factory = null;
 
     //#endregion
     
@@ -58,6 +61,7 @@ class Scene extends Phaser.Scene{
         
         this._entity_factory = new EntityFactory();
         this._component_factory = new ComponentFactory();
+        this._button_factory = new ButtonFactory();
 
     } // constructor
 
@@ -74,7 +78,6 @@ class Scene extends Phaser.Scene{
      * Se usa para cargar los assets.
      */
     preload(){
-
     } // preload
 
 
@@ -154,6 +157,45 @@ class Scene extends Phaser.Scene{
 
     } // createEntities
 
+
+    createButtons(config){
+
+        config["buttons"].forEach(element => {
+
+            // Crea el boton
+            let b = this._button_factory.create(this, element["type"], element);
+
+            if (b != null){
+                this._buttons.push(b);
+            }
+        })
+    } // createButtons
+
+
+    createCollider(){
+        //Collide with the enemy -> return to origin
+        this.physics.add.collider(
+            this._entities[0],
+            this._entities[1],
+            function (player,enemy_low){
+                player.x = 0.25
+                player.y = 0.5
+            }.bind(this)); 
+        this.physics.add.collider(
+            this._entities[0],
+            this._entities[2],
+            function (player,enemy_fast){
+                player.x = 0.25
+                player.y = 0.5
+            }.bind(this)); 
+        this.physics.add.collider(
+            this._entities[0],
+            this._entities[3],
+            function (player,fuego){
+                player.x = 0.25
+                player.y = 0.5
+            }.bind(this)); 
+    }
     //#endregion
 
 } // class Scene

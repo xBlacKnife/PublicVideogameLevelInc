@@ -1,0 +1,24 @@
+
+<div id="editor-container">
+    <section id="editor-level">
+        <label>Nivel: </label>
+        <p-dropdown [options]="levels" [(ngModel)]="selectedLevels" optionLabel="name" maxSelectedLabels=1></p-dropdown>
+    </section>
+
+    <section id="game-canvas">
+        <app-game></app-game>
+    </section>
+
+    <section id="editor-info">
+        <div id="editor-save">
+            <div *ngIf="!saved; else elseBlock">
+                <button (click)="save()">Guardar</button>
+            </div>
+            <ng-template #elseBlock>
+                <div>
+                    <button (click)="update()">Actualizar</button>
+                </div>
+            </ng-template>
+        </div>
+    </section>
+</div>
