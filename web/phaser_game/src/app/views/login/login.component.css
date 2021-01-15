@@ -1,18 +1,43 @@
-.parent-container {
-    position: relative;
+body {    
+    height: 100vh;
+	display: flex;
+	align-items: center;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	background-color: #f5f5f5;
 }
 
-.container {
-    text-align: justify;
-    width: 60%;
-    height: 60%;
-    max-height: inherit;
-    overflow: auto;
-    margin: auto;
-    position: absolute;
-    top: 30%; left: 30%; bottom: 0%; right: 20%;
+button {
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
 }
 
-.margin{
-    margin: auto;
+main {
+	width: 100%;
+	max-width: 330px;
+	padding: 15px;
+	margin: auto;
+}
+
+#logo {
+    background-color: white;
+    border: 1px solid #ced4da;
+	border-radius: 3px;
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    margin-bottom: 50px;
+    padding: 10px;
+	transition: box-shadow .3s;
+}#logo:hover {
+	box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}
+
+.form-control {
+	position: relative;
+	box-sizing: border-box;
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+	height: auto;
+	padding: 10px;
+	font-size: 16px;
+}.form-control:focus {
+	z-index: 2;
 }

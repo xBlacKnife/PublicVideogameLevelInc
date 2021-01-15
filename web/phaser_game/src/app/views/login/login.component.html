@@ -1,35 +1,37 @@
 <!doctype html>
 <html>
-<head>
- 
-</head>
-<p-card class="container" header="Login" [style]="{width: '360px'}" styleClass="p-card-shadow">
-    <body>
-        <div>
+    <body class="text-center">
+        <main class="form-signin">
             <form>
+                <!-- Logo -->
+                <img id="logo" (click)="goHome()" src="assets/web/images/logo.png" alt="Logo" width="120" height="100">
                 <!-- Username -->
                 <span class="p-float-label">
-                    <input id="float-input" type="text" pInputText> 
-                    <label for="float-input">Username</label>
+                    <input id="float-input" class="form-control" type="text" pInputText> 
+                    <label for="float-input">Usuario</label>
                 </span>
                 <br>
                 <!-- Password -->
-                <span class="p-float-label">
-                    <input id="float-input" type="text" pInputText> 
-                    <label for="float-input">Password</label>
+                <span class="p-float-label ">
+                    <input id="float-input" class="form-control" type="text" pInputText> 
+                    <label for="float-input">Contraseña</label>
                 </span>
                 <br>
-                <!-- botones -->
+                <!-- Buttons -->
+                <div class="checkbox mb-3">
+                    <label>
+                      <input type="checkbox" value="remember-me"> Recuérdame
+                    </label>
+                  </div>
                 <div class="p-grid">
                     <div class="p-col-5">
-                        <button pButton type="button" label="Iniciar Sesión"></button>
+                        <button pButton (click)="doLogin()" type="button" label="Iniciar Sesión"></button>
                          &nbsp;
-                        <button pButton type="button" label="Registrarse" class="p-button-success"></button>
+                        <button pButton (click)="doSignUp()" type="button" label="Registrarse" class="p-button-success"></button>
                     </div>
-                </div>  
+                </div>
+                <p class="mt-5 mb-3 text-muted">&copy; Green World - 2021</p>  
             </form>       
-        </div>
+        </main>
     </body>
-</p-card>
-
 </html>
