@@ -62,7 +62,7 @@ class EditorManager{
     setMode(new_mode, new_info){
         this._mode = new_mode;
         this._info = new_info;
-        
+
         this._grid.setGridMode(new_mode);
 
         if(new_mode === EditorMode.PUT_ENTITY){
@@ -70,7 +70,6 @@ class EditorManager{
         }else{
             this._scene.events.emit(MessageID.DEACTIVATE_PUT_ITEM_BUTTONS);     // Informacion que lleva el mensaje
         }
-        console.log(this._mode);
     }
 
     getCurrentMode(){
