@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../entidades/Usuario';
 import { LoginService } from '../services/login.service';
-import Swal from 'sweetalert2';
 import { Router} from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -35,23 +35,11 @@ export class LoginComponent implements OnInit {
     
       this.loginService.iniciarSesion(this.usuario).subscribe(
         response => {
-
-          Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Correcto',
-            showConfirmButton: false,
-            timer: 1500
-          })
+          console.log("inició sesión")
           this.router.navigate(['home']);
         }, 
         error => {
-          Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Algo anda mal!',
-            footer: 'Usuario o contraseña incorrectos'
-          })
+          console.log("error al iniciar sesión")
         });
     }
 

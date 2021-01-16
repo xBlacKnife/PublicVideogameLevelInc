@@ -1,7 +1,6 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EditorModule } from './views/editor/editor.module';
@@ -29,7 +28,6 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     EditorModule,
     GamePlayerModule,
-    PrimengNGModule,
     HttpClientModule,
     FormsModule,
     
