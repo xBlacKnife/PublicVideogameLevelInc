@@ -17,12 +17,16 @@ export class HeaderComponent implements OnInit {
 
     // Inicialización.
     this.logged_in = false;
-    this.username = null;
+    this.username = "Ejemplo";
   }
 
-  updateState() { // Invocar cuando se reciba login y se consigure la sesión de usuario. TODO
+  updateState() { // Invocar cuando se reciba login y se configure la sesión de usuario. TODO
     this.username = sessionStorage.getItem('username');
     this.logged_in = this.username == null;
+  }
+  
+  goHome() {
+    this.router.navigate(['/home']);
   }
 
   goLogin() {
