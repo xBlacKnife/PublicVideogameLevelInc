@@ -19,9 +19,11 @@ export class LoginComponent implements OnInit {
   constructor(
     private loginService: LoginService,
     private router: Router,
+    
   ) { 
-    this.user = "";
-    this.psw = "";
+    this.user = "pepito";
+    this.psw = "1234";
+    this.usuario = new Usuario();
   }
 
  
@@ -32,6 +34,8 @@ export class LoginComponent implements OnInit {
 
 
   inicioSesion(): void {
+    this.usuario.username = this.user;
+    this.usuario.pasword = this.psw;
     
       this.loginService.iniciarSesion(this.usuario).subscribe(
         response => {
