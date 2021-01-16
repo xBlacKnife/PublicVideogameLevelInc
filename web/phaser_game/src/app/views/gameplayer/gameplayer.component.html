@@ -1,5 +1,12 @@
 
 <div id="game-container">
+    <section id="game-title">
+        <div>
+            <h1>Nombre del juego</h1>
+            <h2>Nombre del autor</h2>
+        </div>
+    </section>
+
     <section id="game-canvas">
         <app-game></app-game>
     </section>
@@ -12,27 +19,25 @@
             <img class='ratingstar' src="assets/web/images/half_star.png" alt="/">
             <img class='ratingstar' src="assets/web/images/empty_star.png" alt="">
         </div>
-        <div id="game-name">
-            <label>Nombre del juego</label>
-            <label>Nombre del autor</label>
-        </div>
         <div id="game-fav">
             <div *ngIf="!faved; else elseBlock">
-                <button (click)="addToFav()">Añadir a favoritos</button>
+                <button pButton (click)="addToFav()" type="button" label="Añadir a favoritos"></button>
             </div>
             <ng-template #elseBlock>
                 <div>
-                    <button (click)="removeFromFav()">Eliminar de favoritos</button>
+                    <button pButton (click)="removeFromFav()" type="button" label="Eliminar de favoritos" class="p-button-danger"></button>
                 </div>
             </ng-template>
         </div>
     </section>
 
     <section id="game-comments">
-        <label>Comentarios</label>
+        <h2>Comentarios</h2>
         <div id="comment-input">
-            <input type="text">
-            <button>Enviar</button>
+            <input type="text" placeholder="Escribe un comentario..." class="p-inputtext p-component">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-bar-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8zm-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5z"/>
+            </svg>
         </div>
         <div id="comment-output">
             <div class="comment">

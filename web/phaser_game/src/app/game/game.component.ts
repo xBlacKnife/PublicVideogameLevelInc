@@ -16,27 +16,27 @@ export class GameComponent implements OnInit {
   config: Phaser.Types.Core.GameConfig;  constructor() {
     this.config = {
       width: 1080,
-    height: 720,
-    parent: "game-canvas",
-    type: Phaser.AUTO,
-    scale:{
-        mode: Phaser.Scale.FIT,
-        autoCenter: Phaser.Scale.CENTER_BOTH
-    },
-    scene: [
-      LoadScene, MenuScene, PlayScene, EditorScene
-    ],
-    physics: {
-      default: 'arcade',
-      arcade: {
-          gravity: { y: 0 },
-          debug: false
-      }
-    },
-    backgroundColor: "#bbbbff"
+      height: 720,
+      parent: "game-canvas",
+      type: Phaser.AUTO,
+      scale:{
+          mode: Phaser.Scale.FIT,
+          autoCenter: Phaser.Scale.CENTER_BOTH
+      },
+      scene: [
+        LoadScene, MenuScene, PlayScene, EditorScene
+      ],
+      physics: {
+        default: 'arcade',
+        arcade: {
+            gravity: { y: 0 },
+            debug: false
+        }
+      },
+      backgroundColor: "#bbbbff",
     };
   }  
   ngOnInit() {
-    this.phaserGame = new Phaser.Game(this.config);
+    this.phaserGame = new Phaser.Game(this.config);      
   }
 }
