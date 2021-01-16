@@ -1,5 +1,5 @@
-.parent-container {
-    position: relative;
+.border {
+    border-style: solid;
 }
 
 .container {
@@ -12,10 +12,10 @@
     top: 60%; left: 10%; bottom: 0; right: 10%;
 }
 
-.margin{
-    margin: auto;
+.parent-container {
+    position: relative;
 }
 
-.border {
-    border-style: solid;
+.margin{
+    margin: auto;
 }
