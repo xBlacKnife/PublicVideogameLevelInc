@@ -7,16 +7,24 @@
     align-self: center;
     display: flex;
     justify-content: flex-end;
-    width: 70vw;
+    width: 1080px;
 }
 
 #editor-level {
     align-self: center;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     margin-bottom: 20px;
     margin-top: 20px;
-    width: 70vw;
+    width: 1080px;
+}
+
+#editor-level div {
+    align-self: center;
+}
+
+#editor-level h1 {
+    font-size: 4em;
 }
 
 #editor-level label {
@@ -27,13 +35,17 @@
 
 #game-canvas {
     align-self: center; 
-    border: 1px solid;
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin: 20px;
     margin-top: 0;
     text-align: center;
-    height: 50vh;
-    width: 70vw;
+    height: 720px;
+    width: 1080px;
+}
+
+canvas {
+    
+    border-radius: 10px;
 }

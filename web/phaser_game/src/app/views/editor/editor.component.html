@@ -1,8 +1,11 @@
 
 <div id="editor-container">
     <section id="editor-level">
-        <label>Nivel: </label>
-        <p-dropdown [options]="levels" [(ngModel)]="selectedLevels" optionLabel="name" maxSelectedLabels=1></p-dropdown>
+        <h1>Editor</h1>
+        <div>
+            <label>Nivel: </label>
+            <p-dropdown [options]="levels" [(ngModel)]="selectedLevels" optionLabel="name" maxSelectedLabels=1></p-dropdown>
+        </div>
     </section>
 
     <section id="game-canvas">
@@ -12,11 +15,11 @@
     <section id="editor-info">
         <div id="editor-save">
             <div *ngIf="!saved; else elseBlock">
-                <button (click)="save()">Guardar</button>
+                <button pButton (click)="save()" type="button" label="Guardar"></button>
             </div>
             <ng-template #elseBlock>
                 <div>
-                    <button (click)="update()">Actualizar</button>
+                    <button pButton (click)="update()" type="button" label="Actualizar"  class="p-button-success"></button>
                 </div>
             </ng-template>
         </div>
