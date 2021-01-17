@@ -2,7 +2,7 @@
 <html>
     <body class="text-center">
         <main class="form-signin">
-            <form>
+            <form id="login">
                 <!-- Logo -->
                 <img id="logo" (click)="goHome()" src="assets/web/images/logo.png" alt="Logo" width="120" height="100">
                 <!-- Username -->
@@ -30,7 +30,9 @@
                         <button pButton (click)="doSignUp()" type="button" label="Registrarse" class="p-button-success"></button>
                     </div>
                 </div>
-                <p class="mt-5 mb-3 text-muted">&copy; Green World - 2021</p>  
+                <div id="copyright">
+                  <p> 2021 © Green World, AMBI, Todos los derechos reservados </p>
+                </div>
             </form>       
         </main>
     </body>

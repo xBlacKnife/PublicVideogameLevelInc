@@ -17,7 +17,33 @@ main {
 	margin: auto;
 }
 
+#copyright {;
+	align-self: center;
+    border: 1px solid #d6dace;
+    border-radius: 10px 10px 10px 10px;
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+	justify-self: center;
+	margin-top: 100px;
+    width: max-content;
+}
+
+#copyright p {
+	font-size: .8em;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#login {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
 #logo {
+	align-self: center;
     background-color: white;
     border: 1px solid #ced4da;
 	border-radius: 3px;
