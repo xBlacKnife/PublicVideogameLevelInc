@@ -49,3 +49,71 @@ canvas {
     
     border-radius: 10px;
 }
+
+@media screen and (max-width: 1250px) {
+    #editor-info {
+        width: 720px;
+    }
+    
+    #editor-level {
+        margin-bottom: 20px;
+        margin-top: 50px;
+        width: 720px;
+    }
+
+    #editor-level h1 {
+        font-size: 3em;
+    }
+
+    #game-canvas {
+        margin: 20px;
+        margin-top: 0;
+        height: 480px;
+        width: 720px;
+    }
+}
+
+@media screen and (max-width: 820px) {
+    #editor-info {
+        width: 450px;
+    }
+    
+    #editor-level {
+        margin-bottom: 20px;
+        margin-top: 50px;
+        width: 450px;
+    }
+
+    #editor-level h1 {
+        font-size: 3em;
+    }
+
+    #game-canvas {
+        height: 300px;
+        width: 450px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    #editor-info {
+        width: 240px;
+    }
+    
+    #editor-level {
+        flex-direction: column;
+        margin-bottom: 20px;
+        margin-top: 0px;
+        width: 240px;
+    }
+
+    #editor-level h1 {
+        font-size: 2em;
+        text-align: center;
+    }
+
+    #game-canvas {
+        height: 160px;
+        width: 240px;
+    }
+}
+

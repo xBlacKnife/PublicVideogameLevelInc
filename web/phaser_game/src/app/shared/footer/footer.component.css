@@ -22,3 +22,15 @@ footer{
     padding-left: 15px;
     padding-right: 15px;
 }
+
+@media screen and (max-width: 920px) {
+    footer {
+        font-size: .75em;
+    }
+}
+  
+@media screen and (max-width: 420px) {
+    footer {
+        font-size: .5em;
+    }
+}
