@@ -104,3 +104,118 @@
 .ratingstar {
     width: 40px;
 }
+
+@media screen and (max-width: 1280px) {
+    #game-info {
+        justify-content: center;
+        width: 720px;
+    }
+
+    #game-title {
+        width: 720px;
+    }
+
+    #game-canvas {
+        height: 480px;
+        width: 720px;
+    }
+
+    #game-comments {
+        max-width: 720px;
+    }
+
+    .comment .comment-date {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 920px) {
+    #game-info {
+        width: 450px;
+    }
+    
+    #game-title {
+        width: 450px;
+    }
+
+    #game-title h1 {
+        font-size: 2em;
+        margin-left: -1px;
+    }
+
+    #game-title h2 {
+        font-size: 1.2em;
+    }
+
+    #game-canvas {
+        height: 300px;
+        width: 450px;
+    }
+
+    #game-comments {
+        max-width: 450px;
+        margin: 20px;
+        margin-top: 40px;
+    }
+    
+    #game-fav {
+        font-size: .3em;
+    }
+
+    .comment .comment-date {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    #game-info {
+        flex-direction: column;
+        width: 240px;
+    }
+
+    #game-rating {
+        margin-bottom: 20px;
+    }
+    
+    #game-title {
+        width: 240px;
+    }
+
+    #game-title h1 {
+        font-size: 1.2em;
+        margin-left: -1px;
+    }
+
+    #game-title h2 {
+        font-size: .7em;
+    }
+
+    #game-canvas {
+        margin-top: 0;
+        height: 160px;
+        width: 240px;
+    }
+
+    #game-comments {
+        max-width: 240px;
+        margin: 20px;
+        margin-top: 40px;
+    }
+
+    .comment .comment-date {
+        display: none;
+    }
+
+    .comment-user {
+        font-size: .5em;
+    }
+
+    .comment-logo {
+        height: 36px;
+        width: 36px;
+    }
+
+    .comment-text {
+        font-size: .5em;
+    }
+}

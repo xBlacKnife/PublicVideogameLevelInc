@@ -113,34 +113,140 @@ header {
     width: 50px;
 }
 
-/* @media only screen and (min-width: 640px) {
-    .headerBrand {
-        width: 25%;
+@media screen and (max-width: 920px) {
+    header {
+        max-height: 60px;
     }
-    .headerLink{
-        width: 75%;
+
+    #authentication {
+        border-radius: 0 0 0 12px;
+        width: 100px;
     }
-    .imgLogo{
-    width:70%;
+
+    #login {
+        font-size: .6em;
+        font-weight: bolder;
+        width: max-content;
+        transition: .3s color;
+    }
+    
+    #login svg {
+        color: #6d757e;
+        height: 18px;
+        width: 18px;
+        margin-left: 2px;
+    }
+
+    #logo {
+        border-radius: 0 0 12px 0;
+        padding: 8px;
+        width: 70px;
+    }
+    
+    #logo > img {
+        height: 100%;
+    }
+
+    #logout {
+        font-size: .6em;
+        margin-top: 2px;
+    }
+    
+    #logout svg {
+        height: 12px;
+        width: 12px;
+        margin-left: 3px;
+        margin-top: 4px;
+    }
+
+    #search {
+        width: 40vw;
+    }
+
+    #search > input {
+        font-size: .7em;
+        height: 25px;
+        width: 30vw;
+        border-radius: 5px;
+    }
+
+    #search > svg {
+        height: 18px;
+        width: 18px;
+        margin-right: 12px;
+    }
+    
+    #userlogo svg {
+        height: 30px;
+        width: 30px;
     }
 }
-@media only screen and (min-width: 768px) {
-    .headerBrand {
-        width: 20%;
+  
+@media screen and (max-width: 420px) {
+    header {
+        max-height: 30px;
+    }
+
+    #authentication {
+        border-radius: 0 0 0 7px;
+        width: 45px;
+    }
+
+    #login {
+        font-size: .3em;
+        font-weight: bolder;
+        width: max-content;
+        transition: .3s color;
+    }
+    
+    #login svg {
+        color: #6d757e;
+        height: 10px;
+        width: 10px;
+        margin-left: 1px;
+    }
+
+    #logo {
+        border-radius: 0 0 7px 0;
+        padding: 0px;
+        width: 35px;
+    }
+    
+    #logo > img {
+        height: 80%;
+    }
+
+    #logout {
+        font-size: .2em;
+        margin-top: 2px;
+    }
+    
+    #logout svg {
+        height: 6px;
+        width: 6px;
+        margin-left: 3px;
+        margin-top: 2px;
+    }
+
+    #search {
+        width: 50vw;
+    }
+
+    #search > input {
+        font-size: .4em;
+        height: 10px;
+        width: 40vw;
+        border-radius: 5px;
+    }
+
+    #search > svg {
+        height: 12px;
+        width: 12px;
+        margin-right: 5px;
+    }
+    
+    #userlogo svg {
+        height: 10px;
+        width: 10px;
     }
 }
-@media only screen and (min-width: 992px) {
-    .imgLogo{
-        width:60%;
-    }
-}
-@media only screen and (min-width: 1024px) {
-    .headerBrand {
-        width: 15%;
-    }
-}
-@media only screen and (min-width: 1280px) {
-    .headerBrand {
-        width: 10%;
-    }
-} */
