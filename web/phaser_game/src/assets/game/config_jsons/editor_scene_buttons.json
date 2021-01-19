@@ -19,28 +19,11 @@
             }
         },
         {
-            "name": "select_entity_button",
-            "type": "button_editor",
-            "position": {
-                "x": 0.05,
-                "y": 0.15
-            },
-            "scale": {
-                "x": 1,
-                "y": 1
-            },
-            "texture": "editor_button_select_entity",
-            "states":["up", "over"],
-            "function":{
-                "type": "SELECT_ENTITY"
-            }
-        },
-        {
             "name": "remove_entity_button",
             "type": "button_editor",
             "position": {
                 "x": 0.05,
-                "y": 0.25
+                "y": 0.15
             },
             "scale": {
                 "x": 1,
@@ -50,57 +33,6 @@
             "states":["up", "over"],
             "function":{
                 "type": "REMOVE_ENTITY"
-            }
-        },
-        {
-            "name": "save_level_button",
-            "type": "button_editor",
-            "position": {
-                "x": 0.95,
-                "y": 0.05
-            },
-            "scale": {
-                "x": 1,
-                "y": 1
-            },
-            "texture": "editor_button_save_level",
-            "states":["up", "over"],
-            "function":{
-                "type": "SAVE_LEVEL"
-            }
-        },
-        {
-            "name": "load_level_button",
-            "type": "button_editor",
-            "position": {
-                "x": 0.95,
-                "y": 0.15
-            },
-            "scale": {
-                "x": 1,
-                "y": 1
-            },
-            "texture": "editor_button_load_level",
-            "states":["up", "over"],
-            "function":{
-                "type": "LOAD_LEVEL"
-            }
-        },
-        {
-            "name": "test_level_button",
-            "type": "button_editor",
-            "position": {
-                "x": 0.95,
-                "y": 0.25
-            },
-            "scale": {
-                "x": 1,
-                "y": 1
-            },
-            "texture": "editor_button_test_level",
-            "states":["up", "over"],
-            "function":{
-                "type": "TEST_LEVEL"
             }
         },
         {
@@ -114,7 +46,7 @@
                 "x": 0.5,
                 "y": 0.5
             },
-            "texture": "editor_button_test_level",
+            "texture": "editor_button_tile",
             "states":["up", "over"],
             "function":{
                 "type": "TILE"
@@ -131,93 +63,26 @@
                 "x": 0.5,
                 "y": 0.5
             },
-            "texture": "editor_button_test_level",
+            "texture": "editor_button_fire",
             "states":["up", "over"],
             "function":{
                 "type": "GAME_OBJECT"
             }, 
             "entity_conf":
-                    {
-                        "name" : "fuego", 
-                        "position":{
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "spritesheet": ["fuego_sheet"],
-                        "components":{
-                            "enemy_movement":{
-                                "velX": 0,
-                                "velY": 0
-                            }
-                        }
-                    }
-        },
-        {
-            "name": "pannel_items_selector",
-            "type": "pannel",
-            "position": {
-                "x": 0.5,
-                "y": 0.05
-            },
-            "scale": {
-                "x": 1,
-                "y": 1
-            },
-            "texture": "items_pannel",
-            "buttons":[
-                {
-                    "name": "pannel_button_1",
-                    "type": "button_editor",
-                    "position": {
-                        "x": -0.2,
-                        "y": 0
-                    },
-                    "scale": {
-                        "x": 1,
-                        "y": 1
-                    },
-                    "texture": "editor_button_load_level",
-                    "states":["up", "over"],
-                    "function":{
-                        "type": "LOAD_LEVEL"
-                    }
+            {
+                "name" : "fuego", 
+                "position":{
+                    "x": 0.0,
+                    "y": 0.0
                 },
-                {
-                    "name": "pannel_button_2",
-                    "type": "button_editor",
-                    "position": {
-                        "x": 0,
-                        "y": 0
-                    },
-                    "scale": {
-                        "x": 1,
-                        "y": 1
-                    },
-                    "texture": "editor_button_test_level",
-                    "states":["up", "over"],
-                    "function":{
-                        "type": "TEST_LEVEL"
-                    }
-                },
-                {
-                    "name": "pannel_button_3",
-                    "type": "button_editor",
-                    "position": {
-                        "x": 0.2,
-                        "y": 0
-                    },
-                    "scale": {
-                        "x": 1,
-                        "y": 1
-                    },
-                    "texture": "editor_button_load_level",
-                    "states":["up", "over"],
-                    "function":{
-                        "type": "LOAD_LEVEL"
+                "spritesheet": ["fuego_sheet"],
+                "components":{
+                    "enemy_movement":{
+                        "velX": 0,
+                        "velY": 0
                     }
                 }
-            ]
+            }
         }
-
     ]
 }

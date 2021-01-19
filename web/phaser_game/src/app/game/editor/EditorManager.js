@@ -29,7 +29,7 @@ class EditorManager{
         this._info = {};
         this._grid = grid;
 
-
+        this.createListeners();
     }
 
     createListeners(){
@@ -70,7 +70,6 @@ class EditorManager{
         }else{
             this._scene.events.emit(MessageID.DEACTIVATE_PUT_ITEM_BUTTONS);     // Informacion que lleva el mensaje
         }
-        console.log(this._mode);
     }
 
     getCurrentMode(){
