@@ -359,7 +359,7 @@ class EditorGrid extends Entity{
         if (this.scene.input.mousePointer.isDown)
         {
             // PUT ENTITIES ------- 
-            if(this._currentMode == "PUT_ENTITY"){
+            if(this._currentMode == EditorMode.PUT_ENTITY){
                 if(this._currentPlacingType === PlacingTypes.TILE)
                 {
                     var scaleFact = (this._screenTileSize/ this._tilePxSize);
@@ -379,13 +379,13 @@ class EditorGrid extends Entity{
             }
 
             // REMOVE ENTITIES ------- 
-            else if (this._currentMode == "REMOVE_ENTITY"){
+            else if (this._currentMode == EditorMode.REMOVE_ENTITY){
                 pGrid._levelTilemap.removeTileAt(tileXY.x, tileXY.y, pGrid._layer);
                 console.log("RemoveTile: " + pGrid._currentTile + ", pos: " + tileXY.x + ", " + tileXY.y);
 
 
             // SELECT ENTITIES ------- 
-            }else if (this._currentMode == "SELECT_ENTITY"){
+            }else if (this._currentMode == EditorMode.SELECT_ENTITY){
                 
             }
             

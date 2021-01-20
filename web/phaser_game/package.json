@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --open",
+    "start": "ng serve --proxy-config proxyConfig.json",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -11,7 +11,8 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~10.1.5",
+    "@angular/animations": "^10.2.4",
+    "@angular/cdk": "^11.0.3",
     "@angular/common": "~10.1.5",
     "@angular/compiler": "~10.1.5",
     "@angular/core": "~10.1.5",
@@ -22,7 +23,10 @@
     "ng": "0.0.0",
     "phaser": "^3.51.0",
     "phaser-component-library": "^2.0.0",
+    "primeicons": "^4.1.0",
+    "primeng": "^11.1.0",
     "rxjs": "~6.6.0",
+    "sweetalert2": "^8.19.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },

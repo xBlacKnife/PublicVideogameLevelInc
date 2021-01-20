@@ -1,0 +1,60 @@
+
+<div id="game-container">
+    <section id="game-canvas">
+        <app-game></app-game>
+    </section>
+
+    <section id="game-info">
+        <div id="game-rating">
+            <img class='ratingstar' src="assets/web/images/full_star.png" alt="*">
+            <img class='ratingstar' src="assets/web/images/full_star.png" alt="*">
+            <img class='ratingstar' src="assets/web/images/full_star.png" alt="*">
+            <img class='ratingstar' src="assets/web/images/half_star.png" alt="/">
+            <img class='ratingstar' src="assets/web/images/empty_star.png" alt="">
+        </div>
+        <div id="game-name">
+            <label>Nombre del juego</label>
+            <label>Nombre del autor</label>
+        </div>
+        <div id="game-fav">
+            <div *ngIf="!faved; else elseBlock">
+                <button (click)="addToFav()">Añadir a favoritos</button>
+            </div>
+            <ng-template #elseBlock>
+                <div>
+                    <button (click)="removeFromFav()">Eliminar de favoritos</button>
+                </div>
+            </ng-template>
+        </div>
+    </section>
+
+    <section id="game-comments">
+        <label>Comentarios</label>
+        <div id="comment-input">
+            <input type="text">
+            <button>Enviar</button>
+        </div>
+        <div id="comment-output">
+            <div class="comment">
+                <div class="comment-user">
+                    <img class="comment-logo" src="assets/web/images/logo.png" alt="logo">
+                    <label>Username</label>
+                </div>
+                <div class="comment-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+                <div class="comment-date">21/12/2020</div>
+            </div>
+            <div class="comment">
+                <div class="comment-user">
+                    <img class="comment-logo" src="assets/web/images/logo.png" alt="logo">
+                    <label>Username</label>
+                </div>
+                <div class="comment-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+                <div class="comment-date">21/12/2020</div>
+            </div>
+        </div>
+    </section>
+</div>

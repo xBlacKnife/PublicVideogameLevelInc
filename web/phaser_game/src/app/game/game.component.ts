@@ -17,7 +17,7 @@ export class GameComponent implements OnInit {
     this.config = {
       width: 1080,
     height: 720,
-    parent: "container",
+    parent: "game-canvas",
     type: Phaser.AUTO,
     scale:{
         mode: Phaser.Scale.FIT,

@@ -1,0 +1,31 @@
+<header class="row">
+  <div class="headerBrand col-3 col-xl-3 col-lg-3 col-md-3">
+    <a class="brandIcon">
+      <img src="assets/web/images/logo.png" alt="logo" class="imgLogo">
+    </a>
+  </div>
+  <div class="col-6 col-xl-6 col-lg-6 col-md-6">
+    <div>
+      <p>Búsqueda</p>
+      <input type="text" pInputText />
+    </div>
+  </div>
+  <div class="col-3 col-xl-3 col-lg-3 col-md-3">
+    <div class="row">
+      <div *ngIf="!logged_in; else elseBlock">
+        <button (click)="goLogin()">Login</button>
+      </div>
+      <ng-template #elseBlock>
+        <div class="col-6 col-xl-6 col-lg-6 col-md-6">
+          <div class="p-field p-grid">
+            <img src="assets/web/images/logo.png" alt="logo" class='userlogo'>
+            <label>Username</label>
+          </div>
+        </div>
+        <div class="col-6 col-xl-6 col-lg-6 col-md-6">
+          <button (click)="doLogout()">Logout</button>
+        </div>
+      </ng-template>
+    </div>
+  </div> 
+</header>
