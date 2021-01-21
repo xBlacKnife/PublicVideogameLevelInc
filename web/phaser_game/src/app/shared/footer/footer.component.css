@@ -1,5 +1,36 @@
-
 footer{
-    display: block;
+    background-color: #c1c1c100;
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
     width: 100%;
+}
+
+#copyright {
+    border: 1px solid #d6dace;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+    width: max-content;
+}
+
+#copyright p {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+@media screen and (max-width: 920px) {
+    footer {
+        font-size: .75em;
+    }
+}
+  
+@media screen and (max-width: 420px) {
+    footer {
+        font-size: .5em;
+    }
 }

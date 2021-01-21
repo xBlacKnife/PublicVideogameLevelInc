@@ -7,16 +7,24 @@
     align-self: center;
     display: flex;
     justify-content: flex-end;
-    width: 70vw;
+    width: 1080px;
 }
 
 #editor-level {
     align-self: center;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     margin-bottom: 20px;
     margin-top: 20px;
-    width: 70vw;
+    width: 1080px;
+}
+
+#editor-level div {
+    align-self: center;
+}
+
+#editor-level h1 {
+    font-size: 4em;
 }
 
 #editor-level label {
@@ -27,13 +35,85 @@
 
 #game-canvas {
     align-self: center; 
-    border: 1px solid;
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin: 20px;
     margin-top: 0;
     text-align: center;
-    height: 50vh;
-    width: 70vw;
+    height: 720px;
+    width: 1080px;
 }
+
+canvas {
+    
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 1250px) {
+    #editor-info {
+        width: 720px;
+    }
+    
+    #editor-level {
+        margin-bottom: 20px;
+        margin-top: 50px;
+        width: 720px;
+    }
+
+    #editor-level h1 {
+        font-size: 3em;
+    }
+
+    #game-canvas {
+        margin: 20px;
+        margin-top: 0;
+        height: 480px;
+        width: 720px;
+    }
+}
+
+@media screen and (max-width: 820px) {
+    #editor-info {
+        width: 450px;
+    }
+    
+    #editor-level {
+        margin-bottom: 20px;
+        margin-top: 50px;
+        width: 450px;
+    }
+
+    #editor-level h1 {
+        font-size: 3em;
+    }
+
+    #game-canvas {
+        height: 300px;
+        width: 450px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    #editor-info {
+        width: 240px;
+    }
+    
+    #editor-level {
+        flex-direction: column;
+        margin-bottom: 20px;
+        margin-top: 0px;
+        width: 240px;
+    }
+
+    #editor-level h1 {
+        font-size: 2em;
+        text-align: center;
+    }
+
+    #game-canvas {
+        height: 160px;
+        width: 240px;
+    }
+}
+

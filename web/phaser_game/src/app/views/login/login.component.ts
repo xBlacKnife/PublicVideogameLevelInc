@@ -26,12 +26,9 @@ export class LoginComponent implements OnInit {
     this.usuario = new Usuario();
   }
 
- 
-
   ngOnInit(): void {
 
   }
-
 
   inicioSesion(): void {
     this.usuario.username = this.user;
@@ -46,6 +43,15 @@ export class LoginComponent implements OnInit {
           console.log("error al iniciar sesión")
         });
     }
+
+  goHome() {
+    this.router.navigate(['/home']);
+  }
+
+  doSignUp() {
+    this.router.navigate(['/home']);
+    //TO-DO: Sign user up
+  }
 
 }
 

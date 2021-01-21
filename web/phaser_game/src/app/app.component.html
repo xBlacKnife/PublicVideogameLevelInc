@@ -1,6 +1,6 @@
-<app-header></app-header>
-<div class="app-content row">
-    <app-sidebar></app-sidebar>
+<app-header *ngIf="router.url !== '/login'" ></app-header>
+<div class="app-content">
+    <app-sidebar *ngIf="router.url !== '/login'" ></app-sidebar>
     <router-outlet></router-outlet>
 </div>
-<app-footer></app-footer>
+<app-footer *ngIf="router.url !== '/login'" ></app-footer>

@@ -1,21 +1,171 @@
-.parent-container {
-    position: relative;
+body {
+    background-color: #c1c1c100;
+	height: 100%;
+	overflow: hidden;
 }
 
-.container {
-    width: 90%;
-    height: 90%;
-    max-height: inherit;
+body .content-container {
+	height: 100%;
+	overflow: auto;
+	position: relative;
+}
+
+body .content-container .content-sidebar {
+    padding-top: 16px;
+    border-right: 1px solid #f8f9fa;
+}
+
+body .content-container .content-sidebar .sidebar-icon {
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+body .content-container .content {
+	/* height: calc(100vh - 66px); */
     overflow: auto;
-    margin: auto;
-    position: absolute;
-    top: 60%; left: 10%; bottom: 0; right: 10%;
+    padding-top: 80px;
 }
 
-.margin{
+#carousel-home {
+    height: auto;
+    width: 720px;
+    margin: 0 auto 32px;
+}
+
+#carousel-home img {
+    height: max-content;
+    width: auto;
     margin: auto;
 }
 
-.border {
-    border-style: solid;
+body .content-container .content .tabbed-content {
+    margin: 50px auto;
+}
+
+
+.content {
+    align-self: center;
+}
+
+.levels {
+    display: flex;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+
+.level-thumbnail {
+    flex: 0 0 auto;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+
+.level-thumbnail img {
+    height: 200px;
+    width: auto;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+}
+
+.tabbed-content {
+    max-width: 1240px;
+    overflow: auto;
+}
+
+@media only screen and (max-width: 1200px) {
+    .tabbed-content {
+        max-width: 860px;
+    }
+}
+
+@media only screen and (max-width: 920px) {
+    body {
+        overflow: auto;
+    }
+    
+    body .content-container {
+        height: 100%;
+        overflow: auto;
+        position: relative;
+    }
+    
+    body .content-container .content-sidebar {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 16px;
+        border-right: 1px solid #f8f9fa;
+    }
+    
+    body .content-container .content-sidebar .sidebar-icon {
+        width: 50px;
+    }
+    
+    body .content-container .content {
+        height: auto;
+        overflow: auto;
+        padding-top: 16px;
+        width: 100%;
+    }
+  
+    #carousel-home {
+        height: auto;
+        width: 400px;
+        margin: 0 auto 32px;
+        margin-top: 50px;
+    }
+    
+    #carousel-home img {
+        height: 220px;
+        width: auto;
+        margin: auto;
+    }
+    
+    .tabbed-content {
+        max-width: 450px;
+    }
+}
+
+@media only screen and (max-width: 620px) {
+    #carousel-home {
+        height: auto;
+        width: 300px;
+        margin: 0 auto 32px;
+        margin-top: 30px;
+    }
+
+    .tabbed-content {
+        max-width: 380px;
+    }
+
+    .level-thumbnail img {
+        height: 180px;
+        width: auto;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    #carousel-home {
+        height: auto;
+        width: 240px;
+        margin: 0 auto 32px;
+    }
+
+    #carousel-home img {
+        height: 140px;
+        width: auto;
+        margin: auto;
+    }
+
+    .tabbed-content {
+        max-width: 250px;
+    }
+
+    .level-thumbnail img {
+        height: 140px;
+        width: auto;
+    }
+    
 }
